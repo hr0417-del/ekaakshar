@@ -8,10 +8,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="favicon.png">
-
-<meta name="description" content="Ekaakshar Education – Transforming schools through life skills, systems, and future-ready learning.">
-
 <style>
 
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
@@ -33,7 +29,7 @@ body {
   height:44px;
 }
 
-/* HERO IMAGE (NO CROPPING EVER) */
+/* HERO IMAGE */
 .hero {
   width:100%;
   display:flex;
@@ -132,21 +128,41 @@ body {
   transform:translateY(-5px);
 }
 
-.card h3 {
-  margin-bottom:10px;
-}
-
 .card p {
   color:#64748b;
 }
 
 /* FORM */
-iframe {
-  width:100%;
-  height:650px;
-  border:none;
-  border-radius:10px;
+.form {
+  display:grid;
+  gap:15px;
+  max-width:600px;
+  margin:auto;
+}
+
+.form input,
+.form textarea {
+  padding:14px;
   border:1px solid #e2e8f0;
+  border-radius:8px;
+  font-size:14px;
+}
+
+.form textarea {
+  min-height:120px;
+}
+
+.form button {
+  padding:14px;
+  background:#d4af37;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.form button:hover {
+  background:#b8962e;
 }
 
 /* CONTACT */
@@ -169,19 +185,9 @@ footer {
 
 /* MOBILE */
 @media (max-width:768px) {
-
-  .nav {
-    padding:20px;
-  }
-
-  .section {
-    padding:50px 20px;
-  }
-
-  .hero-text h1 {
-    font-size:32px;
-  }
-
+  .nav {padding:20px;}
+  .section {padding:50px 20px;}
+  .hero-text h1 {font-size:32px;}
 }
 
 </style>
@@ -196,7 +202,7 @@ footer {
 
 <!-- HERO IMAGE -->
 <div class="hero">
-  <img src="hero.jpg" alt="Ekaakshar Hero">
+  <img src="hero.jpg" alt="Hero Image">
 </div>
 
 <!-- HERO CONTENT -->
@@ -276,11 +282,32 @@ footer {
 
   <h2>Let’s Connect</h2>
 
-  <p style="margin-bottom:20px;color:#64748b;">
+  <p style="margin-bottom:30px;color:#64748b;">
     Share your details and we’ll get back to you.
   </p>
 
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSez9mAlzJgcK9kZLnCvR1k230er5fOtpYSkUgkw9P9aN3LBHA/viewform?embedded=true"></iframe>
+  <form 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSez9mAlzJgcK9kZLnCvR1k230er5fOtpYSkUgkw9P9aN3LBHA/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    class="form"
+  >
+
+    <input type="text" name="entry.2005620554" placeholder="Your Name" required>
+    <input type="email" name="entry.1045781291" placeholder="Email Address" required>
+    <input type="text" name="entry.1065046570" placeholder="School / Organization">
+    <input type="tel" name="entry.1166974658" placeholder="Phone Number" required>
+    <textarea name="entry.839337160" placeholder="Your Message"></textarea>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <p id="success-msg" style="display:none; margin-top:20px; color:green; text-align:center;">
+    Thank you! We will get back to you shortly.
+  </p>
 
   <div class="contact">
     <p>📞 <a href="tel:+918796255005">+91-8796255005</a></p>
@@ -292,6 +319,14 @@ footer {
 <footer>
 © 2026 Ekaakshar Education
 </footer>
+
+<script>
+document.querySelector("form").addEventListener("submit", function() {
+  setTimeout(() => {
+    document.getElementById("success-msg").style.display = "block";
+  }, 500);
+});
+</script>
 
 </body>
 </html>
