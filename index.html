@@ -27,17 +27,17 @@ body {
   display:flex;
   align-items:center;
   padding:20px 60px;
-  background:#ffffff;
 }
 
 .logo {
   height:44px;
 }
 
-/* HERO (IMAGE ONLY) */
+/* HERO — FULL IMAGE (NO CROPPING) */
 .hero {
   height:75vh;
-  background: url('hero.jpg') center/cover no-repeat;
+  background: url('hero.jpg') center/contain no-repeat;
+  background-color:#f8fafc;
 }
 
 /* SECTION */
@@ -52,7 +52,7 @@ body {
   margin-bottom:50px;
 }
 
-/* HERO TEXT BLOCK */
+/* HERO TEXT */
 .hero-text h1 {
   font-size:54px;
   max-width:750px;
@@ -158,6 +158,25 @@ footer {
   color:#64748b;
 }
 
+/* MOBILE */
+@media (max-width:768px) {
+  .nav {
+    padding:20px;
+  }
+
+  .section {
+    padding:60px 20px;
+  }
+
+  .hero {
+    height:50vh;
+  }
+
+  .hero-text h1 {
+    font-size:34px;
+  }
+}
+
 </style>
 </head>
 
@@ -171,7 +190,7 @@ footer {
 <!-- HERO IMAGE -->
 <div class="hero"></div>
 
-<!-- HERO CONTENT -->
+<!-- HERO CONTENT BELOW -->
 <div class="section hero-text">
 
   <h1>
