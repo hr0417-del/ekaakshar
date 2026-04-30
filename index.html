@@ -17,17 +17,17 @@
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body {
-  background:#020617;
-  color:#e2e8f0;
+  background:#ffffff;
+  color:#0f172a;
   line-height:1.6;
 }
 
 /* NAV */
 .nav {
   display:flex;
-  justify-content:space-between;
   align-items:center;
   padding:20px 60px;
+  background:#ffffff;
 }
 
 .logo {
@@ -38,8 +38,8 @@ body {
 .hero {
   height:95vh;
   background:
-    linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.95)),
-    url('hero.jpg') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)),
+    url('./hero.jpg') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -47,7 +47,7 @@ body {
 }
 
 .hero h1 {
-  font-size:60px;
+  font-size:58px;
   max-width:750px;
   line-height:1.2;
 }
@@ -59,7 +59,7 @@ body {
 .hero p {
   margin-top:24px;
   font-size:19px;
-  color:#cbd5f5;
+  color:#475569;
   max-width:620px;
 }
 
@@ -85,7 +85,6 @@ body {
 
 .btn-primary:hover {
   background:#b8962e;
-  transform:translateY(-2px);
 }
 
 .btn-secondary {
@@ -118,14 +117,15 @@ body {
 }
 
 .card {
-  background:#0f172a;
+  background:#f8fafc;
   padding:30px;
   border-radius:12px;
+  border:1px solid #e2e8f0;
   transition:0.3s;
 }
 
 .card:hover {
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
 .card h3 {
@@ -134,7 +134,7 @@ body {
 }
 
 .card p {
-  color:#94a3b8;
+  color:#64748b;
 }
 
 /* FORM */
@@ -144,6 +144,7 @@ iframe {
   border:none;
   border-radius:12px;
   background:#fff;
+  border:1px solid #e2e8f0;
 }
 
 /* CONTACT */
@@ -154,7 +155,7 @@ iframe {
 }
 
 .contact a {
-  color:#e2e8f0;
+  color:#0f172a;
   text-decoration:none;
 }
 
@@ -172,7 +173,7 @@ footer {
 
 <!-- NAV -->
 <div class="nav">
-  <img src="logo.png" class="logo">
+  <img src="./logo.png" class="logo">
 </div>
 
 <!-- HERO -->
@@ -252,7 +253,7 @@ footer {
 
   <h2>Let’s Connect</h2>
 
-  <p style="margin-bottom:20px;color:#94a3b8;">
+  <p style="margin-bottom:20px;color:#64748b;">
     Share your details and we’ll get back to you.
   </p>
 
