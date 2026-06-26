@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekaakshar Education | Building Capable Futures</title>
+  <script type="module" crossorigin src="/assets/script-Df4EAlAN.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/script-BW9ylcb0.css">
+</head>
+<body>
+    <div id="noise-overlay"></div>
+    <div id="custom-cursor"></div>
+    <div id="scroll-progress"></div>
+    <div id="bottom-progress-tracker"></div>
+    <div class="telemetry-sidebar mono">
+        <div class="telemetry-item"><span class="telemetry-dot"></span> EVALUATION: ONGOING</div>
+        <div class="telemetry-item"><span class="telemetry-dot"></span> OBSERVATIONS: ACTIVE</div>
+        <div class="telemetry-item"><span class="telemetry-dot"></span> ECOSYSTEM: OPERATIONAL</div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="polish-bg-depth" id="glow-depth-1"></div>
+    <div class="polish-bg-depth" id="glow-depth-2"></div>
+    <div class="polish-bg-depth" id="glow-depth-3"></div>
+
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">EKAAKSHAR</span>
+            </div>
+            <div class="nav-links">
+                <div class="nav-capsule" id="nav-capsule"></div>
+                <a href="#navigator">Navigator™</a>
+                <a href="#programs">Programs</a>
+                <a href="#vision">Vision</a>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="#contact" class="btn-nav-outline">Partner With Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CINEMATIC HERO -->
+    <section class="hero reveal">
+        <div class="orb" style="top: -20%; left: 10%; width: 1000px; height: 1000px;"></div>
+        
+        <div class="inline-label floating" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.25rem; background: rgba(0,0,0,0.03); border-radius: 99px; margin-bottom: 3rem;">
+            <span style="width: 8px; height: 8px; background: var(--accent); border-radius: 50%;"></span>
+            <span style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em;">Education Intelligence for Human Development</span>
+        </div>
+        
+        <h1>Because <span class="word-swapper-container" id="hero-swapper">
+                <span class="word-swapper-word"><span class="highlight-confidence">Confidence</span></span>
+                <span class="word-swapper-word"><span class="highlight-leadership">Leadership</span></span>
+                <span class="word-swapper-word"><span class="highlight-communication">Communication</span></span>
+                <span class="word-swapper-word"><span class="highlight-future-readiness">Future Readiness</span></span>
+            </span> Should Not Depend On Chance.
+        </h1>
+        
+        <div class="hero-sub">
+            The capabilities that shape a student's future rarely develop by accident.
+            <br><br>
+            Ekaakshar Education helps schools build the learning systems, meaningful experiences, and educational intelligence needed to develop them intentionally.
+        </div>
+        
+        <div class="btn-group">
+            <a href="#navigator" class="btn btn-primary">Explore Navigator™</a>
+            <a href="#contact" class="btn btn-secondary">Partner With Us <span>→</span></a>
+        </div>
+ 
+        <!-- ABSTRACT INTELLIGENCE ENGINE -->
+        <div class="hero-visual reveal">
+            <div class="glass-card" style="padding: 0; background: rgba(255,255,255,0.01); border-radius: 60px;">
+                <svg width="100%" height="500" viewBox="0 0 1200 500" style="overflow: visible;">
+                    <defs>
+                        <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0" />
+                            <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.5" />
+                            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                        </linearGradient>
+                        <radialGradient id="grad-core" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                        </radialGradient>
+                        <filter id="glow-core" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="16" result="blur" />
+                        </filter>
+                        <filter id="shadow-card" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="rgba(0,0,0,0.04)" />
+                        </filter>
+                    </defs>
+                    
+                    <!-- Grid System -->
+                    <g opacity="0.04">
+                        <path d="M 0 100 H 1200" stroke="black" stroke-width="0.5" />
+                        <path d="M 0 200 H 1200" stroke="black" stroke-width="0.5" />
+                        <path d="M 0 300 H 1200" stroke="black" stroke-width="0.5" />
+                        <path d="M 0 400 H 1200" stroke="black" stroke-width="0.5" />
+                        <path d="M 200 0 V 500" stroke="black" stroke-width="0.5" />
+                        <path d="M 400 0 V 500" stroke="black" stroke-width="0.5" />
+                        <path d="M 600 0 V 500" stroke="black" stroke-width="0.5" />
+                        <path d="M 800 0 V 500" stroke="black" stroke-width="0.5" />
+                        <path d="M 1000 0 V 500" stroke="black" stroke-width="0.5" />
+                    </g>
+
+                    <!-- Flow Lines (Left Ingress) -->
+                    <path class="connection-path" d="M 280 130 C 440 130 460 250 600 250" stroke="url(#grad-blue)" stroke-width="1.5" fill="none" />
+                    <path class="connection-path" d="M 280 250 H 600" stroke="url(#grad-blue)" stroke-width="1.5" fill="none" />
+                    <path class="connection-path" d="M 280 370 C 440 370 460 250 600 250" stroke="url(#grad-blue)" stroke-width="1.5" fill="none" />
+
+                    <!-- Flow Lines (Right Egress) -->
+                    <path class="connection-path" d="M 600 250 C 740 250 760 92.5 920 92.5" stroke="var(--accent)" stroke-width="1.5" stroke-opacity="0.25" fill="none" />
+                    <path class="connection-path" d="M 600 250 C 740 250 760 187.5 920 187.5" stroke="var(--accent)" stroke-width="1.5" stroke-opacity="0.25" fill="none" />
+                    <path class="connection-path" d="M 600 250 C 740 250 760 282.5 920 282.5" stroke="var(--accent)" stroke-width="1.5" stroke-opacity="0.25" fill="none" />
+                    <path class="connection-path" d="M 600 250 C 740 250 760 377.5 920 377.5" stroke="var(--accent)" stroke-width="1.5" stroke-opacity="0.25" fill="none" />
+
+                    <!-- Staggered Energy Packets (Left to Center) -->
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="4.2s" repeatCount="indefinite" path="M 280 130 C 440 130 460 250 600 250" begin="0s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="3.6s" repeatCount="indefinite" path="M 280 250 H 600" begin="1.2s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="4.8s" repeatCount="indefinite" path="M 280 370 C 440 370 460 250 600 250" begin="0.6s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+
+                    <!-- Staggered Energy Packets (Center to Right) -->
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="4.4s" repeatCount="indefinite" path="M 600 250 C 740 250 760 92.5 920 92.5" begin="0.3s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="3.8s" repeatCount="indefinite" path="M 600 250 C 740 250 760 187.5 920 187.5" begin="1.8s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="4.6s" repeatCount="indefinite" path="M 600 250 C 740 250 760 282.5 920 282.5" begin="0.9s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+                    <circle r="3.5" fill="var(--accent)">
+                        <animateMotion dur="5.0s" repeatCount="indefinite" path="M 600 250 C 740 250 760 377.5 920 377.5" begin="2.4s" keyTimes="0; 1" keySplines="0.4, 0, 0.2, 1" calcMode="spline" />
+                    </circle>
+
+                    <!-- Core Intelligence Hub -->
+                    <g>
+                        <circle cx="600" cy="250" r="105" fill="none" stroke="rgba(37,99,235,0.06)" stroke-width="1.5" />
+                        <!-- Outer Orbit (CW) -->
+                        <circle cx="600" cy="250" r="85" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="14 14" stroke-opacity="0.25">
+                            <animateTransform attributeName="transform" type="rotate" from="0 600 250" to="360 600 250" dur="25s" repeatCount="indefinite" />
+                        </circle>
+                        <!-- Inner Orbit (CCW) -->
+                        <circle cx="600" cy="250" r="65" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="8 8" stroke-opacity="0.35">
+                            <animateTransform attributeName="transform" type="rotate" from="360 600 250" to="0 600 250" dur="18s" repeatCount="indefinite" />
+                        </circle>
+                        <!-- Glowing Core Sphere -->
+                        <circle cx="600" cy="250" r="45" fill="url(#grad-core)" filter="url(#glow-core)" />
+                        <circle cx="600" cy="250" r="10" fill="var(--accent)" />
+                        <text x="600" y="130" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="700" fill="var(--accent)" letter-spacing="0.1em">NAVIGATOR™ CORE</text>
+                    </g>
+
+                    <!-- Left Ingest Cards (Interactive Node Groups) -->
+                    <!-- Node 0: Academic Records -->
+                    <g class="svg-interactive-node" data-index="0" style="cursor: pointer;">
+                        <rect x="110" y="90" width="170" height="80" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="130" y="120" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Academic Records</text>
+                        <text x="130" y="138" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#64748b">Student Marks</text>
+                        <rect x="130" y="148" width="130" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="130" y="148" width="95" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+
+                    <!-- Node 1: Behavioral Journals -->
+                    <g class="svg-interactive-node" data-index="1" style="cursor: pointer;">
+                        <rect x="110" y="210" width="170" height="80" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="130" y="240" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Behavioral Logs</text>
+                        <text x="130" y="258" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#64748b">Activity Journals</text>
+                        <circle cx="134" cy="270" r="3.5" fill="#22c55e">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <text x="144" y="273" font-family="Space Grotesk" font-size="9" font-weight="700" fill="#22c55e">LIVE OBSERVATION</text>
+                    </g>
+
+                    <!-- Node 2: Ecosystem Log -->
+                    <g class="svg-interactive-node" data-index="2" style="cursor: pointer;">
+                        <rect x="110" y="330" width="170" height="80" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="130" y="360" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Ecosystem Log</text>
+                        <text x="130" y="378" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#64748b">Attendance & Events</text>
+                        <rect x="130" y="388" width="130" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="130" y="388" width="123" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+
+                    <!-- Right Output Cards -->
+                    <!-- Card 1: Confidence -->
+                    <g>
+                        <rect x="920" y="55" width="180" height="75" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="940" y="82" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Confidence Index</text>
+                        <text x="940" y="100" font-family="Space Grotesk" font-size="10" font-weight="600" fill="var(--accent)">FCI Score: 85%</text>
+                        <rect x="940" y="110" width="140" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="940" y="110" width="119" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+
+                    <!-- Card 2: Leadership -->
+                    <g>
+                        <rect x="920" y="150" width="180" height="75" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="940" y="177" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Leadership Agency</text>
+                        <text x="940" y="195" font-family="Space Grotesk" font-size="10" font-weight="600" fill="var(--accent)">FCI Score: 90%</text>
+                        <rect x="940" y="205" width="140" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="940" y="205" width="126" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+
+                    <!-- Card 3: Communication -->
+                    <g>
+                        <rect x="920" y="245" width="180" height="75" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="940" y="272" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Active Articulation</text>
+                        <text x="940" y="290" font-family="Space Grotesk" font-size="10" font-weight="600" fill="var(--accent)">FCI Score: 82%</text>
+                        <rect x="940" y="300" width="140" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="940" y="300" width="115" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+
+                    <!-- Card 4: Future Readiness -->
+                    <g>
+                        <rect x="920" y="340" width="180" height="75" rx="16" fill="#ffffff" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" filter="url(#shadow-card)" />
+                        <text x="940" y="367" font-family="Space Grotesk" font-size="12" font-weight="700" fill="#0f172a">Future Readiness</text>
+                        <text x="940" y="385" font-family="Space Grotesk" font-size="10" font-weight="600" fill="var(--accent)">FCI Score: 79%</text>
+                        <rect x="940" y="395" width="140" height="4" rx="2" fill="#f1f5f9" />
+                        <rect x="940" y="395" width="110" height="4" rx="2" fill="var(--accent)" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">The environments we build shape the people students become.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <!-- ASYMMETRICAL STORYTELLING SECTION (ERA COMPARISON) -->
+    <section class="thesis-section reveal" id="vision">
+        <span class="label">Our Belief</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.2; margin-top: 2rem; margin-bottom: 3.5rem; max-width: 900px; text-align: center; text-wrap: balance; font-weight: 700; color: var(--primary-text);">Students Grow Through Environments.</h2>
+        
+        <div class="thesis-container">
+            <!-- Pivot Point Divider: Vertical line with a centered, glowing cyan dot at the threshold -->
+            <div class="thesis-divider">
+                <div class="thesis-pivot-dot"></div>
+            </div>
+            
+            <!-- Left Column (The Legacy Paradigm): Background #0f172a / Header: 'Every school teaches.' -->
+            <div class="thesis-col-left legacy-side">
+                <span class="label" style="opacity: 0.5; margin-bottom: 2rem;">Our Belief</span>
+                <h3 style="font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; margin-bottom: 2.5rem; font-family: var(--font-sans);">Every school teaches.</h3>
+                
+                <ul class="thesis-list">
+                    <li class="thesis-item">
+                        <svg class="svg-x-bullet" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; flex-shrink: 0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>But every school also shapes confidence.</span>
+                    </li>
+                    <li class="thesis-item">
+                        <svg class="svg-x-bullet" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; flex-shrink: 0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>It shapes communication.</span>
+                    </li>
+                    <li class="thesis-item">
+                        <svg class="svg-x-bullet" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; flex-shrink: 0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>It shapes leadership.</span>
+                    </li>
+                    <li class="thesis-item">
+                        <svg class="svg-x-bullet" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; flex-shrink: 0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>It shapes curiosity.</span>
+                    </li>
+                    <li class="thesis-item">
+                        <svg class="svg-x-bullet" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; flex-shrink: 0;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>It shapes character.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Right Column: Header: 'Our Focus' -->
+            <div class="thesis-col-right synthesis-side">
+                <span class="label" style="color: var(--accent); margin-bottom: 2rem;">Development</span>
+                <p style="margin-top: 2rem; margin-bottom: 3rem; font-size: 1.25rem; line-height: 1.6; font-family: var(--font-sans);">The question is not whether students are developing.</p>
+                
+                <ul class="thesis-list">
+                    <li class="thesis-item thesis-item-active" style="display: flex; align-items: flex-start; gap: 1.25rem;">
+                        <div class="pulse-dot-container" style="margin-top: 0.35rem;"><div class="pulse-dot cyan-glowing-dot"></div></div>
+                        <div>
+                            <strong style="display: block; font-size: 1.35rem; font-weight: 600; line-height: 1.45;">The question is whether we understand that development well enough to support it.</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">Not everything important appears on a report card.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <!-- WHAT WE DO: BENTO SHOWCASE -->
+    <!-- WHAT WE DO: BENTO SHOWCASE -->
+    <style>
+        /* Bento Ecosystem Launch Section Styles */
+        .bento-showcase-section {
+            padding-bottom: 12rem;
+            position: relative;
+        }
+
+        .ecosystem-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+
+        @media (min-width: 992px) {
+            .ecosystem-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.25rem 2rem;
+            }
+        }
+
+        /* SVG Connectors */
+        .ecosystem-connectors {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            .ecosystem-connectors {
+                display: block;
+            }
+        }
+
+        .connector-path-bg {
+            fill: none;
+            stroke: rgba(9, 9, 11, 0.04);
+            stroke-width: 1.5;
+        }
+
+        .connector-path-glow {
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-dasharray: 8 180;
+            stroke-dashoffset: 0;
+            animation: connector-flow 6s infinite linear;
+            opacity: 0.15;
+            transition: opacity 0.5s ease, stroke-width 0.5s ease;
+        }
+
+        @keyframes connector-flow {
+            to {
+                stroke-dashoffset: -188;
+            }
+        }
+
+        .connector-path-glow.path-active {
+            opacity: 1;
+            stroke-width: 3.25;
+            animation-duration: 3s;
+        }
+
+        /* Premium Bento Cards (Frosted Glass Refined) */
+        .bento-card {
+            position: relative;
+            border-radius: 28px !important;
+            border: 1px solid rgba(255, 255, 255, 0.55) !important;
+            background: rgba(255, 255, 255, 0.06) !important;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 2.25rem !important;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 270px;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 
+                        0 4px 30px rgba(0, 0, 0, 0.015),
+                        0 0 25px rgba(37, 99, 235, 0.015) !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.5s ease,
+                        filter 0.5s ease !important;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Sweep reflection shine effect */
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .bento-card:hover::before {
+            left: 150%;
+        }
+
+        /* Light inner gradient overlay */
+        .bento-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-6px) translateZ(0);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45),
+                        0 20px 40px rgba(0, 0, 0, 0.035),
+                        0 0 30px rgba(37, 99, 235, 0.04) !important;
+        }
+
+        /* Ambient Glow Backdrop */
+        .ambient-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .bento-card:hover .ambient-glow {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Card specific border and shadow highlights */
+        .student-intel-card:hover::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent); }
+        .student-intel-card:hover { border-color: rgba(37, 99, 235, 0.3) !important; }
+        .student-intel-card .ambient-glow { background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%); }
+
+        .life-skills-card:hover::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent); }
+        .life-skills-card:hover { border-color: rgba(245, 158, 11, 0.3) !important; }
+        .life-skills-card .ambient-glow { background: radial-gradient(circle, rgba(245, 158, 11, 0.12), transparent 70%); }
+
+        .navigator-card:hover::before, .navigator-card.hub-glow-active::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent); }
+        .navigator-card:hover, .navigator-card.hub-glow-active { border-color: rgba(0, 229, 255, 0.35) !important; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45), 0 25px 50px rgba(0, 229, 255, 0.08) !important; }
+        .navigator-card.hub-glow-active .ambient-glow { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        .navigator-card .ambient-glow { background: radial-gradient(circle, rgba(0, 229, 255, 0.15), rgba(37, 99, 235, 0.08) 60%, transparent 80%); width: 350px; height: 350px; }
+
+        .future-skills-card:hover::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent); }
+        .future-skills-card:hover { border-color: rgba(16, 185, 129, 0.3) !important; }
+        .future-skills-card .ambient-glow { background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 70%); }
+
+        .skill-labs-card:hover::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent); }
+        .skill-labs-card:hover { border-color: rgba(139, 92, 246, 0.3) !important; }
+        .skill-labs-card .ambient-glow { background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%); }
+
+        .school-transformation-card:hover::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent); }
+        .school-transformation-card:hover { border-color: rgba(37, 99, 235, 0.3) !important; }
+        .school-transformation-card .ambient-glow { background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%); }
+
+        /* Asymmetric Placement Grid inside Scrollable Area */
+        @media (min-width: 992px) {
+            .navigator-card { grid-column: 1 / span 2; grid-row: 1 / span 2; min-height: 520px; }
+            .student-intel-card { grid-column: 3; grid-row: 1; min-height: 250px; }
+            .life-skills-card { grid-column: 3; grid-row: 2; min-height: 250px; }
+            .future-skills-card { grid-column: 1; grid-row: 3; min-height: 285px; }
+            .skill-labs-card { grid-column: 2; grid-row: 3; min-height: 285px; }
+            .school-transformation-card { grid-column: 3; grid-row: 3; min-height: 285px; }
+        }
+
+        /* Ecosystem Flagship Hover Interactions */
+        .ecosystem-grid.nav-hover-active .bento-card:not(.navigator-card) {
+            opacity: 0.7;
+            filter: saturate(0.75) blur(0.2px);
+            transform: scale(0.985);
+            border-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
+        .ecosystem-grid.nav-hover-active .ecosystem-connectors .connector-path-glow {
+            opacity: 0.95;
+            stroke-width: 3px;
+            animation-duration: 2s;
+        }
+
+        .ecosystem-grid.nav-hover-active .bento-card:not(.navigator-card) .ambient-glow {
+            opacity: 0.35;
+        }
+
+        /* Card Visual Containers */
+        .bento-graphic-container {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.008);
+            border: 1px solid rgba(0, 0, 0, 0.015);
+            transition: border-color 0.4s ease;
+            z-index: 1;
+        }
+
+        .navigator-hub-graphic {
+            height: 190px;
+            background: transparent;
+            border: none;
+        }
+
+        .bento-card:hover .bento-graphic-container {
+            border-color: rgba(9, 9, 11, 0.04);
+        }
+
+        .bento-card.bento-highlight {
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(37,99,235,0.01) 100%) !important;
+            border: 1px solid rgba(37, 99, 235, 0.22) !important;
+        }
+
+        /* Accordion Toggle visual state */
+        .bento-toggle {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.015);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .bento-card:hover .bento-toggle {
+            background: rgba(9, 9, 11, 0.04);
+            border-color: rgba(9, 9, 11, 0.08);
+        }
+
+        .bento-toggle-icon {
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card.is-expanded .bento-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .bento-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .bento-card h4 {
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--primary-text);
+        }
+
+        .navigator-card h4 {
+            font-size: 1.65rem;
+        }
+
+        .bento-desc {
+            font-size: 0.88rem;
+            color: var(--secondary-text);
+            line-height: 1.45;
+            margin-bottom: 0;
+        }
+
+        .navigator-card .bento-desc {
+            font-size: 0.95rem;
+        }
+
+        /* Small "Explore" Interaction */
+        .explore-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-top: 0.85rem;
+            opacity: 0.55;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .bento-card:hover .explore-link {
+            opacity: 1;
+            transform: translateX(2px);
+        }
+
+        .explore-arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .bento-card:hover .explore-arrow {
+            transform: translateX(3px);
+        }
+
+        .card-footer {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.2;
+            color: var(--primary-text);
+            margin-top: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .bento-card:hover .card-footer {
+            opacity: 0.45;
+        }
+
+        /* Expanded State Details */
+        .bento-expanded-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card.is-expanded .bento-expanded-details {
+            max-height: 250px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .ecosystem-bullet-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px dashed rgba(0, 0, 0, 0.05);
+            padding-top: 0.75rem;
+        }
+
+        .ecosystem-bullet-list li {
+            font-size: 0.8rem;
+            line-height: 1.35;
+            color: var(--secondary-text);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .ecosystem-bullet-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+
+        /* 1. Student Intelligence Constellation Star Nodes */
+        .constellation-star {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+            transform-origin: center;
+        }
+
+        .bento-card:hover .constellation-star {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 5px currentColor);
+        }
+
+        .intel-node-label {
+            font-family: var(--font-mono);
+            font-size: 7.5px;
+            font-weight: 700;
+            fill: var(--primary-text);
+            opacity: 0.25;
+            transition: opacity 0.4s ease, fill 0.4s ease;
+        }
+
+        .bento-card:hover .intel-node-label {
+            opacity: 0.6;
+            fill: var(--accent);
+        }
+
+        .constellation-pulse {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 1;
+            stroke-opacity: 0.5;
+            transform-origin: center;
+            animation: constellation-ripple 3s infinite ease-out;
+        }
+
+        .constellation-pulse:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes constellation-ripple {
+            0% { r: 5px; opacity: 1; }
+            100% { r: 35px; opacity: 0; }
+        }
+
+        /* 2. Life Skills Concentric Waves */
+        .vocal-ripple {
+            stroke: #f59e0b;
+            stroke-opacity: 0.15;
+            fill: none;
+            transform-origin: 100px 70px;
+            animation: vocal-expand 4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vocal-ripple:nth-child(1) { animation-delay: 0s; }
+        .vocal-ripple:nth-child(2) { animation-delay: 1.3s; }
+        .vocal-ripple:nth-child(3) { animation-delay: 2.6s; }
+
+        @keyframes vocal-expand {
+            0% { transform: scale(0.3); opacity: 0.9; stroke-width: 2; }
+            100% { transform: scale(1.2); opacity: 0; stroke-width: 0.5; }
+        }
+
+        .silhouette-coords {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: 100px 85px;
+        }
+
+        .bento-card:hover .silhouette-coords {
+            transform: scale(1.06);
+        }
+
+        /* 3. Navigator Orbiting Nodes & core pulse */
+        .nav-orbit-ring {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 1;
+            stroke-opacity: 0.15;
+            stroke-dasharray: 4 4;
+            transform-origin: 150px 100px;
+        }
+
+        .ring-outer {
+            animation: nav-rotate-clockwise 25s infinite linear;
+        }
+
+        .ring-inner {
+            animation: nav-rotate-counter 20s infinite linear;
+            stroke-opacity: 0.2;
+        }
+
+        .orbiting-nodes-group {
+            transform-origin: 150px 100px;
+            animation: nav-rotate-clockwise 35s infinite linear;
+        }
+
+        @keyframes nav-rotate-clockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes nav-rotate-counter {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .nav-core-pulse {
+            transform-origin: 150px 100px;
+            animation: nav-breathing-core 4s infinite ease-in-out;
+        }
+
+        @keyframes nav-breathing-core {
+            0%, 100% { transform: scale(0.9); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.6; }
+        }
+
+        .bento-card:hover .ring-outer { animation-duration: 10s; }
+        .bento-card:hover .ring-inner { animation-duration: 8s; }
+        .bento-card:hover .orbiting-nodes-group { animation-duration: 12s; }
+
+        /* 4. Future Skills digital grid */
+        .tech-grid {
+            stroke: rgba(16, 185, 129, 0.08);
+            stroke-width: 0.75;
+            transition: stroke 0.3s ease;
+        }
+
+        .bento-card:hover .tech-grid {
+            stroke: rgba(16, 185, 129, 0.16);
+        }
+
+        .grid-vertex {
+            fill: #10b981;
+            opacity: 0.3;
+            transform-origin: center;
+            animation: vertex-glow 3s infinite ease-in-out;
+        }
+
+        .grid-vertex:nth-child(2) { animation-delay: 1s; }
+        .grid-vertex:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes vertex-glow {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.8); opacity: 0.8; }
+        }
+
+        .code-particle {
+            fill: #10b981;
+            opacity: 0.4;
+            animation: particle-float-up 4s infinite linear;
+        }
+
+        @keyframes particle-float-up {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-40px) translateX(6px); opacity: 0; }
+        }
+
+        /* 5. Skill Labs gears */
+        .lab-rotating-gear {
+            transform-origin: 80px 70px;
+            animation: labs-gear-spin-cw 20s infinite linear;
+        }
+
+        .lab-rotating-gear-counter {
+            transform-origin: 120px 88px;
+            animation: labs-gear-spin-ccw 15s infinite linear;
+        }
+
+        @keyframes labs-gear-spin-cw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes labs-gear-spin-ccw {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .bento-card:hover .lab-rotating-gear { animation-duration: 6s; }
+        .bento-card:hover .lab-rotating-gear-counter { animation-duration: 4.5s; }
+
+        .workspace-tool {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0.4;
+        }
+
+        .bento-card:hover .workspace-tool {
+            opacity: 0.8;
+        }
+
+        .bento-card:hover .wrench-tool {
+            transform: translate(-3px, -3px) rotate(5deg);
+        }
+
+        .bento-card:hover .flask-tool {
+            transform: translate(3px, -3px) rotate(-5deg);
+        }
+
+        /* 6. School Transformation architectural blueprints */
+        .blueprint-line {
+            stroke: rgba(9, 9, 11, 0.03);
+            stroke-width: 0.75;
+        }
+
+        .blueprint-building {
+            stroke: var(--accent);
+            stroke-opacity: 0.15;
+            stroke-width: 1.25;
+            fill: none;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            transition: stroke-dashoffset 2s cubic-bezier(0.25, 1, 0.5, 1), stroke-opacity 0.5s ease;
+        }
+
+        .bento-card:hover .blueprint-building {
+            stroke-dashoffset: 0;
+            stroke-opacity: 0.65;
+        }
+    </style>
+
+    <section class="reveal bento-showcase-section">
+        <div class="asymmetric-section-wrapper">
+            <!-- Left Sticky Sidebar (35%) -->
+            <div class="asymmetric-sidebar">
+                <div class="sticky-callout">
+                    <span class="label">Our Focus</span>
+                    <h2 class="section-title" style="line-height: 1.25;">Building Learning Systems, Not Isolated Activities.</h2>
+                    <p>Schools don't need more workshops. They need systems that make capability development continuous.<br><br>At Ekaakshar, we combine educational intelligence, experiential learning, Skill Labs, and long-term implementation into one connected learning ecosystem.</p>
+                </div>
+                <div class="sticky-metrics">
+                    <div class="sticky-metric-row">
+                        <span>EVALUATION</span>
+                        <span>ONGOING</span>
+                    </div>
+                    <div class="sticky-metric-row">
+                        <span>SYSTEMS BUILD</span>
+                        <span>Connected Ecosystem</span>
+                    </div>
+                    <div class="sticky-metric-row">
+                        <span>DEVELOPMENT DOMAINS</span>
+                        <span>12 DOMAINS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Scrollable Content (60%) -->
+            <div class="asymmetric-content">
+                <div class="ecosystem-grid">
+                    <!-- SVG Connector Lines Overlay -->
+                    <svg class="ecosystem-connectors" width="100%" height="100%">
+                        <!-- Curved connection lines will be injected here by script.js -->
+                    </svg>
+
+                    <!-- Navigator Card (Center Hub - spans 2 columns and 2 rows) -->
+                    <div class="bento-card bento-highlight navigator-card" data-ecosystem-node="nav">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container navigator-hub-graphic">
+                            <svg width="100%" height="100%" viewBox="0 0 300 200" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="nav-core-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="1" />
+                                        <stop offset="40%" stop-color="var(--accent)" stop-opacity="0.6" />
+                                        <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                    </radialGradient>
+                                    <radialGradient id="nav-ambient-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="150" cy="100" r="90" fill="url(#nav-ambient-glow)" opacity="0.12" />
+                                <!-- Core pulse -->
+                                <circle class="nav-core-pulse" cx="150" cy="100" r="30" fill="url(#nav-core-glow)" opacity="0.4" />
+                                <circle cx="150" cy="100" r="14" fill="#00E5FF" />
+                                <circle cx="150" cy="100" r="6" fill="#ffffff" />
+                                <!-- Double orbit rings -->
+                                <circle class="nav-orbit-ring ring-outer" cx="150" cy="100" r="65" />
+                                <circle class="nav-orbit-ring ring-inner" cx="150" cy="100" r="45" />
+                                <!-- Rotating nodes on orbits -->
+                                <g class="orbiting-nodes-group">
+                                    <circle class="orbiting-node node-1" cx="150" cy="35" r="4.5" fill="#00E5FF" />
+                                    <circle class="orbiting-node node-2" cx="195" cy="100" r="4" fill="var(--accent)" />
+                                    <circle class="orbiting-node node-3" cx="150" cy="165" r="3.5" fill="#8b5cf6" />
+                                    <circle class="orbiting-node node-4" cx="105" cy="100" r="4.5" fill="#10b981" />
+                                </g>
+                                <!-- Flow lines radiating outward slightly -->
+                                <path d="M 150 100 L 150 10 M 150 100 L 240 100 M 150 100 L 150 190 M 150 100 L 60 100" stroke="rgba(255,255,255,0.15)" stroke-width="0.75" stroke-dasharray="3 3" />
+                            </svg>
+                        </div>
+
+                        <div class="bento-text" style="margin-top: auto;">
+                            <span class="label" style="margin-bottom: 0.75rem; display: inline-block;">Core Focus</span>
+                            <h4>Navigator™</h4>
+                            <p class="bento-desc">Transform everyday observations into meaningful educational intelligence that helps schools understand how students grow.</p>
+                            <div class="explore-link">
+                                <span>Explore system</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Intelligent Observational Engine</strong>: Structured protocols that capture authentic classroom interactions.</li>
+                                    <li><strong>Pedagogical Feedback Loops</strong>: Practical, school-aligned support structures for teachers.</li>
+                                    <li><strong>Growth-Oriented Analytics</strong>: Measures student capabilities beyond standard written test scores.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Ekaakshar System</div>
+                    </div>
+
+                    <!-- Student Intelligence Card (Top Right) -->
+                    <div class="bento-card student-intel-card" data-ecosystem-node="intel">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container">
+                            <svg width="100%" height="100%" viewBox="0 0 200 140" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="intel-grad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="70" r="60" fill="url(#intel-grad)" opacity="0.1" />
+                                <!-- Constellation map paths -->
+                                <path d="M 40 40 L 90 80 L 140 30 L 160 90 L 90 80 M 40 40 L 50 100 L 90 80" stroke="rgba(37,99,235,0.2)" stroke-width="1.2" fill="none" />
+                                <!-- Glowing star nodes -->
+                                <circle class="constellation-star" cx="40" cy="40" r="4.5" fill="var(--accent)" />
+                                <circle class="constellation-star" cx="90" cy="80" r="5" fill="#8b5cf6" />
+                                <circle class="constellation-star" cx="140" cy="30" r="4" fill="var(--accent)" />
+                                <circle class="constellation-star" cx="160" cy="90" r="5.5" fill="var(--accent-cyan)" />
+                                <circle class="constellation-star" cx="50" cy="100" r="3.5" fill="#3b82f6" />
+                                <!-- Node labels that float -->
+                                <text class="intel-node-label" x="40" y="24" text-anchor="middle">Logic</text>
+                                <text class="intel-node-label" x="140" y="16" text-anchor="middle">Agency</text>
+                                <text class="intel-node-label" x="160" y="110" text-anchor="middle">Expression</text>
+                                <!-- Interactive pulse rings -->
+                                <circle class="constellation-pulse" cx="90" cy="80" r="10" />
+                                <circle class="constellation-pulse" cx="160" cy="90" r="12" />
+                            </svg>
+                        </div>
+
+                        <div class="bento-text">
+                            <h4>Student Intelligence</h4>
+                            <p class="bento-desc">Understand every learner beyond marks through structured observations, assessments, and developmental insights.</p>
+                            <div class="explore-link">
+                                <span>Explore intelligence</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Multidimensional Mapping</strong>: Synthesizes social, behavioral, and functional observations.</li>
+                                    <li><strong>Longitudinal Profiles</strong>: Visualizes competence growth trajectories over multiple school years.</li>
+                                    <li><strong>Pedagogical Context</strong>: Translates observation data into actionable teaching adjustments.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Ekaakshar Intelligence</div>
+                    </div>
+
+                    <!-- Life Skills Card (Middle Right) -->
+                    <div class="bento-card life-skills-card" data-ecosystem-node="life">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container">
+                            <svg width="100%" height="100%" viewBox="0 0 200 140" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="life-grad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="70" r="60" fill="url(#life-grad)" opacity="0.08" />
+                                <!-- Concentric ripples representing voice / confidence -->
+                                <circle class="vocal-ripple" cx="100" cy="70" r="30" />
+                                <circle class="vocal-ripple" cx="100" cy="70" r="45" />
+                                <circle class="vocal-ripple" cx="100" cy="70" r="60" />
+                                <!-- Human posture outline node coordinates -->
+                                <g class="silhouette-coords">
+                                    <path d="M 85 100 C 85 85 92 80 100 80 C 108 80 115 85 115 100" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4" />
+                                    <circle cx="100" cy="68" r="8" fill="#f59e0b" />
+                                    <!-- Coordinate markers -->
+                                    <line x1="100" y1="60" x2="100" y2="76" stroke="rgba(255,255,255,0.6)" stroke-width="0.75" />
+                                    <line x1="92" y1="68" x2="108" y2="68" stroke="rgba(255,255,255,0.6)" stroke-width="0.75" />
+                                </g>
+                                <circle cx="60" cy="40" r="3.5" fill="#f59e0b" opacity="0.6" />
+                                <circle cx="140" cy="90" r="3" fill="#f59e0b" opacity="0.6" />
+                            </svg>
+                        </div>
+
+                        <div class="bento-text">
+                            <h4>Life Skills</h4>
+                            <p class="bento-desc">Build confidence, communication, collaboration, emotional intelligence, and self-awareness through meaningful experiences.</p>
+                            <div class="explore-link">
+                                <span>Explore skills</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Experiential Loops</strong>: High-frequency practice cycles that build public speaking confidence.</li>
+                                    <li><strong>Collaborative Sandbox</strong>: Guided group exercises that develop structural negotiation and leadership.</li>
+                                    <li><strong>Reflective Self-Awareness</strong>: Integrated self-reflection prompts to cultivate emotional fitness.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Student Growth</div>
+                    </div>
+
+                    <!-- Future Skills Card (Bottom Left) -->
+                    <div class="bento-card future-skills-card" data-ecosystem-node="future">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container">
+                            <svg width="100%" height="100%" viewBox="0 0 200 140" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="future-grad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="70" r="60" fill="url(#future-grad)" opacity="0.08" />
+                                <!-- Digital network grid -->
+                                <path class="tech-grid" d="M 20 0 V 140 M 60 0 V 140 M 100 0 V 140 M 140 0 V 140 M 180 0 V 140 M 0 25 H 200 M 0 60 H 200 M 0 95 H 200 M 0 130 H 200" />
+                                <!-- Grid intersections pulsing -->
+                                <circle class="grid-vertex" cx="60" cy="60" r="3" />
+                                <circle class="grid-vertex" cx="140" cy="95" r="3" />
+                                <circle class="grid-vertex" cx="100" cy="25" r="2.5" />
+                                <!-- Drifting code particles -->
+                                <circle class="code-particle" cx="40" cy="110" r="2" />
+                                <circle class="code-particle" cx="120" cy="40" r="1.5" style="animation-delay: 1.2s;" />
+                                <circle class="code-particle" cx="160" cy="70" r="2.5" style="animation-delay: 2.4s;" />
+                                <!-- Floating brackets or code nodes -->
+                                <path d="M 90 55 L 85 60 L 90 65 M 110 55 L 115 60 L 110 65" stroke="#10b981" stroke-width="1.25" fill="none" opacity="0.7" />
+                            </svg>
+                        </div>
+
+                        <div class="bento-text">
+                            <h4>Future Skills</h4>
+                            <p class="bento-desc">Prepare learners for an AI-driven world with coding, emerging technologies, computational thinking, and digital literacy.</p>
+                            <div class="explore-link">
+                                <span>Explore future</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Computational Thinking</strong>: Logical structure models to approach complex problem solving.</li>
+                                    <li><strong>AI & Automation Literacy</strong>: Teaches students how to direct machine intelligence responsibly.</li>
+                                    <li><strong>Design & Systems Logic</strong>: Practical experience in building modular programmatic workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Developmental Insights</div>
+                    </div>
+
+                    <!-- Skill Labs Card (Bottom Middle) -->
+                    <div class="bento-card skill-labs-card" data-ecosystem-node="labs">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container">
+                            <svg width="100%" height="100%" viewBox="0 0 200 140" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="labs-grad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="70" r="60" fill="url(#labs-grad)" opacity="0.08" />
+                                <!-- Interlocking gears -->
+                                <g class="labs-gear-assembly">
+                                    <!-- Gear 1 (Main violet) -->
+                                    <g class="lab-rotating-gear gear-main">
+                                        <circle cx="80" cy="70" r="22" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="6 3.5" />
+                                        <circle cx="80" cy="70" r="10" fill="none" stroke="#8b5cf6" stroke-width="1.5" />
+                                        <path d="M 80 50 V 90 M 60 70 H 100" stroke="rgba(139,92,246,0.3)" stroke-width="1" />
+                                    </g>
+                                    <!-- Gear 2 (Small helper) -->
+                                    <g class="lab-rotating-gear-counter gear-secondary">
+                                        <circle cx="120" cy="88" r="15" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="5 3" />
+                                        <circle cx="120" cy="88" r="6" fill="none" stroke="#a78bfa" stroke-width="1.25" />
+                                    </g>
+                                </g>
+                                <!-- Workspace floating tools -->
+                                <g class="workspace-tool wrench-tool">
+                                    <path d="M 50 40 L 65 55 M 48 38 A 4 4 0 0 1 54 34 A 4 4 0 0 1 58 40 M 46 44 L 52 38" stroke="#8b5cf6" stroke-width="1.25" fill="none" stroke-linecap="round" />
+                                </g>
+                                <g class="workspace-tool flask-tool">
+                                    <path d="M 142 32 H 150 M 146 32 V 40 L 138 56 A 6 6 0 0 0 144 64 H 154 A 6 6 0 0 0 160 56 L 152 40 V 32" stroke="#8b5cf6" stroke-width="1.25" fill="none" stroke-linecap="round" />
+                                    <line x1="140" y1="52" x2="158" y2="52" stroke="rgba(139,92,246,0.3)" stroke-width="1" />
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="bento-text">
+                            <h4>Skill Labs</h4>
+                            <p class="bento-desc">Create environments where knowledge becomes capability through practice, experimentation, and application.</p>
+                            <div class="explore-link">
+                                <span>Explore labs</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Applied Classrooms</strong>: Shift learning from abstract theory to tactile execution (e.g., Culinary Lab™).</li>
+                                    <li><strong>Resource Management</strong>: Simulates real-world constraints like material cost, time, and team pacing.</li>
+                                    <li><strong>Rapid Prototyping</strong>: Encourages students to build, test, fail, and iterate continuously.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Continuous Practice</div>
+                    </div>
+
+                    <!-- School Transformation Card (Bottom Right) -->
+                    <div class="bento-card school-transformation-card" data-ecosystem-node="school">
+                        <div class="ambient-glow"></div>
+                        <div class="bento-toggle"><span class="bento-toggle-icon">+</span></div>
+                        
+                        <div class="bento-graphic-container">
+                            <svg width="100%" height="100%" viewBox="0 0 200 140" style="overflow: visible;">
+                                <defs>
+                                    <radialGradient id="school-grad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="70" r="60" fill="url(#school-grad)" opacity="0.08" />
+                                <!-- Grid architectural background lines -->
+                                <path class="blueprint-line" d="M 0 115 H 200 M 20 0 V 140 M 60 0 V 140 M 100 0 V 140 M 140 0 V 140 M 180 0 V 140 M 0 35 H 200 M 0 75 H 200" />
+                                <!-- Drawing pillars of institution -->
+                                <path class="blueprint-building" d="M 40 115 V 60 H 75 V 115 M 95 115 V 35 H 135 V 115 M 150 115 V 75 H 180 V 115" />
+                                <!-- Intersection nodes -->
+                                <circle cx="75" cy="60" r="3" fill="var(--accent)" />
+                                <circle cx="95" cy="35" r="3" fill="var(--accent)" />
+                                <circle cx="135" cy="35" r="3" fill="var(--accent)" />
+                                <!-- Upward growth line -->
+                                <path d="M 20 100 Q 80 90, 120 60 T 180 25" stroke="rgba(37,99,235,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4 2" />
+                            </svg>
+                        </div>
+
+                        <div class="bento-text">
+                            <h4>School Transformation</h4>
+                            <p class="bento-desc">Partner with leadership teams to build sustainable systems that strengthen teaching, learning, and student development.</p>
+                            <div class="explore-link">
+                                <span>Explore transformation</span>
+                                <span class="explore-arrow">→</span>
+                            </div>
+                            <div class="bento-expanded-details">
+                                <ul class="ecosystem-bullet-list">
+                                    <li><strong>Institutional Alignment</strong>: Embeds capability frameworks directly into the school's core timetable and operations.</li>
+                                    <li><strong>Faculty Enablement</strong>: Equips educators with structured observation skills and assessment toolkits.</li>
+                                    <li><strong>Sustained Implementation</strong>: Long-term operational partnership that establishes lasting school cultures.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Sustainable Systems</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">Some students understand more than they express.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <!-- NAVIGATOR™ INTELLIGENCE CENTER -->
+    <section id="navigator" class="reveal">
+        <div class="asymmetric-section-wrapper">
+            <!-- Left Sticky Sidebar (40%) -->
+            <div class="asymmetric-sidebar">
+                <div class="sticky-callout">
+                    <span class="label">Navigator™</span>
+                    <h2 class="section-title">Making Student Growth Visible Beyond Marks.</h2>
+                    <p>Navigator™ is Ekaakshar's educational intelligence framework.<br><br>It helps schools understand how students develop confidence, leadership, communication, participation, and future readiness over time.<br><br>Instead of relying only on academic performance, Navigator creates a more complete picture of every learner.</p>
+                    <a href="navigator.html" class="btn-primary-glow" style="display: inline-flex; align-items: center; gap: 0.75rem; border: none; cursor: pointer; font-size: 0.9rem; font-family: var(--font-sans); padding: 0.75rem 1.5rem; margin-top: 1.5rem; text-decoration: none; max-width: fit-content;">
+                        <span>Read Platform Specification</span>
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="sticky-metrics" style="border: none; background: transparent; padding: 0;">
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1.3;">
+                        Understand Growth.<br>
+                        <span style="color: var(--primary-text); opacity: 0.5;">Not Just Performance.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Scrollable Content (60%) -->
+            <div class="asymmetric-content">
+                <div class="navigator-dashboard-wrapper">
+                    <div class="navigator-sidebar">
+                        <button class="nav-tab-btn active" data-view="discover">
+                            <span class="btn-label">Navigator Discover™</span>
+                            <span class="status-dot green"></span>
+                        </button>
+                        <button class="nav-tab-btn" data-view="learn">
+                            <span class="btn-label">Navigator Learn™</span>
+                            <span class="status-dot blue"></span>
+                        </button>
+                        <button class="nav-tab-btn" data-view="pathways">
+                            <span class="btn-label">Navigator Pathways™</span>
+                            <span class="status-dot pulse"></span>
+                        </button>
+                        <button class="nav-tab-btn" data-view="school">
+                            <span class="btn-label">Navigator School™</span>
+                            <span class="status-dot sync"></span>
+                        </button>
+                    </div>
+
+                    <div class="navigator-canvas">
+                        <div id="discover-view" class="canvas-view active">
+                            <div class="telemetry-card">
+                                <div class="card-header">
+                                    <h3>Cognitive & Profile Matrix</h3>
+                                    <span class="mono-tag">Active Strength Mapping</span>
+                                </div>
+                                <div class="matrix-grid">
+                                    <div class="matrix-row">
+                                        <div class="row-info"><span>Confidence</span><span class="mono">85%</span></div>
+                                        <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+                                    </div>
+                                    <div class="matrix-row">
+                                        <div class="row-info"><span>Leadership</span><span class="mono">90%</span></div>
+                                        <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+                                    </div>
+                                    <div class="matrix-row">
+                                        <div class="row-info"><span>Communication</span><span class="mono">82%</span></div>
+                                        <div class="progress-track"><div class="progress-fill" style="width: 82%;"></div></div>
+                                    </div>
+                                    <div class="matrix-row">
+                                        <div class="row-info"><span>Participation</span><span class="mono">88%</span></div>
+                                        <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+                                    </div>
+                                    <div class="matrix-row">
+                                        <div class="row-info"><span>Future Readiness</span><span class="mono">79%</span></div>
+                                        <div class="progress-track"><div class="progress-fill" style="width: 79%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="learn-view" class="canvas-view">
+                            <div class="telemetry-card rings-container">
+                                <div class="card-header">
+                                    <h3>Capability Core Metrics</h3>
+                                    <span class="mono-tag">Growth Tracking Active</span>
+                                </div>
+                                <div class="rings-flex">
+                                    <div class="ring-item">
+                                        <svg width="100" height="100">
+                                            <circle class="track" cx="50" cy="50" r="44"></circle>
+                                            <circle class="fill stroke-85" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 41;"></circle>
+                                        </svg>
+                                        <span class="ring-label">Confidence (<span class="metric-val">85%</span>)</span>
+                                    </div>
+                                    <div class="ring-item">
+                                        <svg width="100" height="100">
+                                            <circle class="track" cx="50" cy="50" r="44"></circle>
+                                            <circle class="fill stroke-90" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 28;"></circle>
+                                        </svg>
+                                        <span class="ring-label">Leadership (<span class="metric-val">90%</span>)</span>
+                                    </div>
+                                    <div class="ring-item">
+                                        <svg width="100" height="100">
+                                            <circle class="track" cx="50" cy="50" r="44"></circle>
+                                            <circle class="fill stroke-82" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 50;"></circle>
+                                        </svg>
+                                        <span class="ring-label">Communication (<span class="metric-val">82%</span>)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="pathways-view" class="canvas-view">
+                            <div class="telemetry-card">
+                                <div class="card-header">
+                                    <h3>Predictive Growth Pathways</h3>
+                                    <span class="mono-tag">Predictive Trajectory Active</span>
+                                </div>
+                                <div class="timeline-wrapper">
+                                    <div class="timeline-node">
+                                        <div class="node-dot"></div>
+                                        <div class="node-content">
+                                            <h4>Foundational Logic</h4>
+                                            <p>Architecture level logic mastery verified across <span class="metric-val">12</span> domains.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-node">
+                                        <div class="node-dot pulsing"></div>
+                                        <div class="node-content">
+                                            <h4>Strategic Communication</h4>
+                                            <p>Peer influence metrics active. Predicted peak: <span class="metric-val">Q4</span>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="school-view" class="canvas-view">
+                            <div class="telemetry-card">
+                                <div class="card-header">
+                                    <h3>Annual Confidence Index Breakdown</h3>
+                                    <span class="mono-tag">School Connected</span>
+                                </div>
+                                <div class="bar-chart-container">
+                                    <div class="chart-bar" style="height: 40%;"><span class="bar-value">40%</span><span class="bar-label">JAN</span></div>
+                                    <div class="chart-bar" style="height: 55%;"><span class="bar-value">55%</span><span class="bar-label">MAR</span></div>
+                                    <div class="chart-bar" style="height: 75%;"><span class="bar-value">75%</span><span class="bar-label">JUL</span></div>
+                                    <div class="chart-bar" style="height: 92%;"><span class="bar-value">92%</span><span class="bar-label">DEC</span></div>
+                                    <div class="chart-bar" style="height: 60%;"><span class="bar-value">60%</span><span class="bar-label">AVG</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="telemetry-shelf mono">
+                            <div class="shelf-item"><span class="status-dot pulsing"></span> DATA_SYNC: <span class="metric-val">ACTIVE</span></div>
+                            <div class="shelf-item">GROWTH_PROFILES: <span class="metric-val">1,420</span></div>
+                            <div class="shelf-item">STABILITY_INDEX: <span class="metric-val">99.8%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">Confidence grows through participation.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <section id="programs" class="reveal">
+        <div class="asymmetric-section-wrapper">
+            <!-- Left Sticky Sidebar (40%) -->
+            <div class="asymmetric-sidebar">
+                <div class="sticky-callout">
+                    <span class="label">Learning Experiences</span>
+                    <h2 class="section-title">Capability Is Built Through Experience.</h2>
+                    <p>Every program is designed to help students apply knowledge in meaningful ways.<br><br>Learning becomes lasting when students participate, create, solve, collaborate, and reflect.</p>
+                </div>
+                <div class="sticky-metrics">
+                    <div class="sticky-metric-row">
+                        <span>CATALOG TYPE</span>
+                        <span>Institution Ready</span>
+                    </div>
+                    <div class="sticky-metric-row">
+                        <span>CAPABILITY MODULES</span>
+                        <span>12_ACTIVE_COURSES</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Scrollable Content (60%) -->
+            <div class="asymmetric-content">
+                <div class="programs-section-container">
+                    <div class="programs-grid-wrapper">
+                        
+                        <div class="program-lens-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">CORE_MODULE_01</span>
+                                <div class="icon-glow-wrapper blue"></div>
+                            </div>
+                            <h3>Life Skills</h3>
+                            <p>Experiential learning designed to build foundational confidence, self-belief, and public articulation frameworks.</p>
+                            <div class="card-footer-metric mono">CAPABILITY: HIGH_VELOCITY</div>
+                        </div>
+
+                        <div class="program-lens-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">CORE_MODULE_02</span>
+                                <div class="icon-glow-wrapper purple"></div>
+                            </div>
+                            <h3>Entrepreneurship</h3>
+                            <p>Building the internal mechanics for value creation, risk insulation, and collaborative practical problem solving.</p>
+                            <div class="card-footer-metric mono">MINDSET: SYSTEM_BUILDING</div>
+                        </div>
+
+                        <div class="program-lens-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">TECH_MODULE_01</span>
+                                <div class="icon-glow-wrapper green"></div>
+                            </div>
+                            <h3>Coding & AI</h3>
+                            <p>Mastering high-level computational automation, neural workflows, and deep programmatic logic in the AI era.</p>
+                            <div class="card-footer-metric mono">LITERACY: AUTOMATION</div>
+                        </div>
+
+                        <div class="program-lens-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">TECH_MODULE_02</span>
+                                <div class="icon-glow-wrapper amber"></div>
+                            </div>
+                            <h3>Robotics</h3>
+                            <p>Physical engineering meets intelligent automation. Hands-on exploration of kinematics, circuitry, and future mobility grids.</p>
+                            <div class="card-footer-metric mono">HARDWARE: INTEGRATED</div>
+                        </div>
+
+                        <div class="program-lens-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">EXPRESSION_01</span>
+                                <div class="icon-glow-wrapper red"></div>
+                            </div>
+                            <h3>Media & Communication</h3>
+                            <p>Developing structural storytelling, multi-channel presentation design, and high-impact interpersonal communications.</p>
+                            <div class="card-footer-metric mono">OUTPUT: HIGH_IMPACT</div>
+                        </div>
+
+                        <div class="program-lens-card highlight-card">
+                            <div class="card-ui-header">
+                                <span class="program-tag mono">SIGNATURE_LAB</span>
+                                <div class="live-pulse-indicator"></div>
+                            </div>
+                            <h3>Culinary Lab™</h3>
+                            <p>A specialized, practical environment where real-world teamwork, resource management, and execution are hammered into continuous capability.</p>
+                            <div class="card-footer-metric mono">PARTNER_STANDARD: KUNSKAPSSKOLAN</div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Centered Trigger Button for Full Catalog Pop-up -->
+                    <div style="display: flex; justify-content: center; margin-top: 5rem;">
+                        <button id="open-programs-dialog" class="btn-primary-glow" style="display: flex; align-items: center; gap: 0.75rem; border: none; cursor: pointer; font-size: 1rem; font-family: var(--font-sans); padding: 1rem 2rem;">
+                            <span>Explore All 12 Programs</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">Every learner develops differently.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <!-- WHY CHOOSE US -->
+    <section class="reveal">
+        <div class="asymmetric-section-wrapper">
+            <!-- Left Sticky Sidebar (40%) -->
+            <div class="asymmetric-sidebar">
+                <div class="sticky-callout">
+                    <span class="label">Why Partner With Us</span>
+                    <h2 class="section-title">Why Schools Partner With Us</h2>
+                    <p>We work alongside school leadership teams to design, implement, and embed learning systems that continue delivering value long after implementation begins.</p>
+                </div>
+                <div class="sticky-metrics">
+                    <div class="sticky-metric-row">
+                        <span>PARTNERSHIP TYPE</span>
+                        <span>Long Term Support</span>
+                    </div>
+                    <div class="sticky-metric-row">
+                        <span>IMPLEMENTATION</span>
+                        <span>Co-operative Model</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Scrollable Content (60%) -->
+            <div class="asymmetric-content">
+                <div class="partnership-section-container">
+                    <div class="partnership-grid-wrapper">
+                        
+                        <div class="partnership-metric-card">
+                            <div class="metric-index-header">
+                                <span class="index-num mono">01 // SYSTEMATIC</span>
+                                <div class="status-indicator-bar blue"></div>
+                            </div>
+                            <h3>We Build Systems.<br>Not Events.</h3>
+                            <p>We help schools move beyond one-time activities and create structured environments where capability develops continuously.</p>
+                        </div>
+
+                        <div class="partnership-metric-card">
+                            <div class="metric-index-header">
+                                <span class="index-num mono">02 // VISIBILITY</span>
+                                <div class="status-indicator-bar blue"></div>
+                            </div>
+                            <h3>We Make Growth Visible.</h3>
+                            <p>Navigator™ helps educators understand how students are growing—not just academically, but personally and socially.</p>
+                        </div>
+
+                        <div class="partnership-metric-card">
+                            <div class="metric-index-header">
+                                <span class="index-num mono">03 // SUSTAINABLE</span>
+                                <div class="status-indicator-bar blue"></div>
+                            </div>
+                            <h3>We Stay And Build.</h3>
+                            <p>We work alongside school leadership and educators to embed systems that continue delivering value long after implementation begins.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="visual-pause">
+        <div class="visual-pause-line"></div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-text">The right environment changes everything.</div>
+        <div class="visual-pause-dot"></div>
+        <div class="visual-pause-line" style="background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))"></div>
+    </div>
+
+    <!-- TRUSTED BY / TIMELINE -->
+    <section class="reveal">
+        <div class="asymmetric-section-wrapper">
+            <!-- Left Sticky Sidebar (40%) -->
+            <div class="asymmetric-sidebar">
+                <div class="sticky-callout">
+                    <span class="label">Our Partners</span>
+                    <h2 class="section-title">Trusted By Schools That Believe Learning Can Be Better.</h2>
+                    <p>Building learning systems that strengthen confidence, capability, and future readiness.</p>
+                </div>
+                <div class="sticky-metrics">
+                    <div class="sticky-metric-row">
+                        <span>STUDENTS ENGAGED</span>
+                        <span>100K+ Students</span>
+                    </div>
+                    <div class="sticky-metric-row">
+                        <span>PARTNERSHIPS</span>
+                        <span>Pilot & Custom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Scrollable Content (60%) -->
+            <div class="asymmetric-content">
+                <div class="authority-section-container">
+                    <div class="authority-grid-wrapper">
+                        
+                        <div class="authority-trust-card">
+                            <div class="authority-card-bg-glow"></div>
+                            <span class="authority-tag mono">GOVERNMENT_PARTNER</span>
+                            <div class="authority-logo-display" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                                <h3 style="margin: 0;">Government Pilot Projects</h3>
+                                <span class="testimonial-badge-pill mono">32% INDEX GROWTH</span>
+                            </div>
+                            <p class="authority-delivery-spec">
+                                <span class="spec-label mono">DEPLOYMENT:</span> Strategic pilot implementations across state schools to foster core leadership and future readiness.
+                            </p>
+                        </div>
+
+                        <div class="authority-trust-card">
+                            <div class="authority-card-bg-glow"></div>
+                            <span class="authority-tag mono">GLOBAL_SCHOOL_NETWORK</span>
+                            <div class="authority-logo-display" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                                <h3 style="margin: 0;">Kunskapsskolan International</h3>
+                                <span class="testimonial-badge-pill mono">94% ADOPTION RATE</span>
+                            </div>
+                            <p class="authority-delivery-spec">
+                                <span class="spec-label mono">DEPLOYMENT:</span> Strategic deployment of signature learning environments, including Culinary Lab™ and Life Skills program structures.
+                            </p>
+                        </div>
+
+                        <div class="authority-trust-card">
+                            <div class="authority-card-bg-glow"></div>
+                            <span class="authority-tag mono">NATIONAL_SYSTEM</span>
+                            <div class="authority-logo-display" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                                <h3 style="margin: 0;">Jawahar Navodaya Vidyalayas</h3>
+                                <span class="testimonial-badge-pill mono">12K+ ACTIVE NODES</span>
+                            </div>
+                            <p class="authority-delivery-spec">
+                                <span class="spec-label mono">DEPLOYMENT:</span> Implementation of structured observation and developmental intelligence frameworks across student environments.
+                            </p>
+                        </div>
+
+                        <div class="authority-trust-card">
+                            <div class="authority-card-bg-glow"></div>
+                            <span class="authority-tag mono">K-12 INSTITUTIONS</span>
+                            <div class="authority-logo-display" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                                <h3 style="margin: 0;">Partner Schools Across India</h3>
+                                <span class="testimonial-badge-pill mono">2.4x CAPABILITY INDEX</span>
+                            </div>
+                            <p class="authority-delivery-spec">
+                                <span class="spec-label mono">DEPLOYMENT:</span> Systemic transformation of school environments to move from academic-only marks to deliberate growth systems.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+        </div>
+    </section>
+
+    <!-- POLICY STRIP -->
+    <section class="policy-strip-section reveal">
+        <div class="policy-marquee-container">
+            <div class="policy-strip-wrapper">
+                <!-- Set 1 -->
+                <a href="#compliance" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span class="mono">EDUCATIONAL STANDARDS</span>
+                </a>
+                <a href="#protocol" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/>
+                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
+                    </svg>
+                    <span class="mono">STUDENT PRIVACY</span>
+                </a>
+                <a href="#partner" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span class="mono">INSTITUTIONAL PARTNERSHIP</span>
+                </a>
+                <a href="#audit" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span class="mono">CONTINUOUS ASSESSMENT</span>
+                </a>
+                <!-- Set 2 (Duplicate for loop) -->
+                <a href="#compliance" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span class="mono">EDUCATIONAL STANDARDS</span>
+                </a>
+                <a href="#protocol" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/>
+                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
+                    </svg>
+                    <span class="mono">STUDENT PRIVACY</span>
+                </a>
+                <a href="#partner" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span class="mono">INSTITUTIONAL PARTNERSHIP</span>
+                </a>
+                <a href="#audit" class="policy-item">
+                    <svg class="policy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span class="mono">CONTINUOUS ASSESSMENT</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION & GLOBAL FOOTER -->
+    <footer class="global-footer-canvas reveal" id="contact">
+        <div class="footer-cta-wrapper">
+            <span class="cta-mini-label mono">Ekaakshar Education</span>
+            <h2>Because Capability<br>Should Not Depend On Chance.</h2>
+            <p>Ekaakshar Education helps schools make student development visible, learning experiences meaningful, and educational outcomes stronger.</p>
+            <div class="footer-cta-actions">
+                <a href="#navigator" class="btn-primary-glow">Explore Navigator™</a>
+                <a href="#contact" class="btn-secondary-clean">Partner With Us <span>→</span></a>
+            </div>
+        </div>
+
+        <div class="footer-nav-grid">
+            <div class="footer-brand-column">
+                <div class="footer-logo">EKAAKSHAR</div>
+                <p>Building Capable Futures. We architect the operating systems that make student development visible, meaningful, and measurable.</p>
+                <span class="security-badge mono"><span class="badge-dot"></span> SECURITY: AES-256</span>
+            </div>
+            
+            <div class="footer-links-column">
+                <span class="column-title mono">INTELLIGENCE</span>
+                <a href="#navigator">Navigator™ Core</a>
+                <a href="#programs">Program Architecture</a>
+                <a href="#vision">Institutional Thesis</a>
+            </div>
+
+            <div class="footer-links-column">
+                <span class="column-title mono">CONNECT</span>
+                <a href="mailto:ceo@ekaakshareducation.com">ceo@ekaakshareducation.com</a>
+                <a href="mailto:ekaakshareducation@gmail.com">ekaakshareducation@gmail.com</a>
+                <a href="tel:+918796255005">+91 87962 55005</a>
+            </div>
+        </div>
+
+        <div class="footer-compliance-bar">
+            <span class="mono">© 2026 Ekaakshar Education. Engineered for deliberate growth.</span>
+            <span class="mono text-muted">HARYANA // INDIA</span>
+        </div>
+    </footer>
+
+    <!-- FULL ACADEMIC PROGRAMS CATALOG DIALOG -->
+    <div id="programs-dialog-overlay" class="dialog-overlay">
+        <div class="dialog-container">
+            <button id="close-programs-dialog" class="dialog-close-btn" aria-label="Close dialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="dialog-header">
+                <span class="label" style="text-align: center; color: var(--accent);">Complete Academy Continuum</span>
+                <h2>Our Full Educational Suite</h2>
+                <p>A rigorous academic and capability framework built to transform passive intelligence into active, observable student outcomes.</p>
+            </div>
+            
+            <div class="dialog-grid">
+                <!-- Program 01: Life Skills -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">CORE_MODULE_01</span>
+                        <div class="icon-glow-wrapper blue"></div>
+                    </div>
+                    <h3>Life Skills</h3>
+                    <p>Experiential learning designed to build foundational confidence, self-belief, and public articulation frameworks.</p>
+                    <div class="card-footer-metric mono">CAPABILITY: HIGH_VELOCITY</div>
+                </div>
+
+                <!-- Program 02: Entrepreneurship -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">CORE_MODULE_02</span>
+                        <div class="icon-glow-wrapper purple"></div>
+                    </div>
+                    <h3>Entrepreneurship</h3>
+                    <p>Building the internal mechanics for value creation, risk insulation, and collaborative practical problem solving.</p>
+                    <div class="card-footer-metric mono">MINDSET: SYSTEM_BUILDING</div>
+                </div>
+
+                <!-- Program 03: Coding & AI -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">TECH_MODULE_01</span>
+                        <div class="icon-glow-wrapper green"></div>
+                    </div>
+                    <h3>Coding & AI</h3>
+                    <p>Mastering high-level computational automation, neural workflows, and deep programmatic logic in the AI era.</p>
+                    <div class="card-footer-metric mono">LITERACY: AUTOMATION</div>
+                </div>
+
+                <!-- Program 04: Robotics -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">TECH_MODULE_02</span>
+                        <div class="icon-glow-wrapper amber"></div>
+                    </div>
+                    <h3>Robotics</h3>
+                    <p>Physical engineering meets intelligent automation. Hands-on exploration of kinematics, circuitry, and robotics design.</p>
+                    <div class="card-footer-metric mono">FOCUS: ENGINEERING & DESIGN</div>
+                </div>
+
+                <!-- Program 05: Media & Communication -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">EXPRESSION_01</span>
+                        <div class="icon-glow-wrapper red"></div>
+                    </div>
+                    <h3>Media & Communication</h3>
+                    <p>Developing structural storytelling, presentation design, and high-impact interpersonal communications.</p>
+                    <div class="card-footer-metric mono">FOCUS: STORYTELLING & MEDIA</div>
+                </div>
+
+                <!-- Program 06: Culinary Lab -->
+                <div class="program-lens-card highlight-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">SIGNATURE_LAB</span>
+                        <div class="live-pulse-indicator"></div>
+                    </div>
+                    <h3>Culinary Lab™</h3>
+                    <p>A specialized, practical environment where real-world teamwork, resource management, and execution are hammered into continuous capability.</p>
+                    <div class="card-footer-metric mono">PARTNER: KUNSKAPSSKOLAN INTERNATIONAL</div>
+                </div>
+
+                <!-- Program 07: Financial Literacy -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">CORE_MODULE_03</span>
+                        <div class="icon-glow-wrapper amber"></div>
+                    </div>
+                    <h3>Financial Literacy</h3>
+                    <p>Demystifying capital allocation, budgeting, personal finance, and long-term economic planning.</p>
+                    <div class="card-footer-metric mono">LITERACY: STRATEGIC</div>
+                </div>
+
+                <!-- Program 08: Design Thinking -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">DESIGN_01</span>
+                        <div class="icon-glow-wrapper green"></div>
+                    </div>
+                    <h3>Design Thinking</h3>
+                    <p>A human-centered framework for exploring complex problems, validating core user assumptions, and rapid prototyping.</p>
+                    <div class="card-footer-metric mono">METHOD: RAPID_VALIDATION</div>
+                </div>
+
+                <!-- Program 09: Leadership & Public Policy -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">EXECUTIVE_01</span>
+                        <div class="icon-glow-wrapper blue"></div>
+                    </div>
+                    <h3>Leadership & Public Policy</h3>
+                    <p>Simulating decision-making, policy development, public debate, and collaborative problem-solving.</p>
+                    <div class="card-footer-metric mono">GOVERNANCE: DISRUPTIVE</div>
+                </div>
+
+                <!-- Program 10: Space Tech & Astronomy -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">TECH_MODULE_03</span>
+                        <div class="icon-glow-wrapper purple"></div>
+                    </div>
+                    <h3>Space Tech & Astronomy</h3>
+                    <p>A gateway to physics, astronomy, orbital concepts, and satellite tracking to cultivate scientific curiosity.</p>
+                    <div class="card-footer-metric mono">FIELDS: ASTROPHYSICS</div>
+                </div>
+
+                <!-- Program 11: Creative Writing & Theatre -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">EXPRESSION_02</span>
+                        <div class="icon-glow-wrapper red"></div>
+                    </div>
+                    <h3>Creative Writing & Theatre</h3>
+                    <p>Mastering narrative structures, performance expression, and public presentation to build core articulation.</p>
+                    <div class="card-footer-metric mono">PRESENCE: MASTER_NARRATIVE</div>
+                </div>
+
+                <!-- Program 12: Mindfulness & Wellbeing -->
+                <div class="program-lens-card">
+                    <div class="card-ui-header">
+                        <span class="program-tag mono">WELLNESS_01</span>
+                        <div class="icon-glow-wrapper blue"></div>
+                    </div>
+                    <h3>Mindfulness & Wellbeing</h3>
+                    <p>Cultivating focus, emotional regulation, empathy, and constructive habits for balanced personal growth.</p>
+                    <div class="card-footer-metric mono">INDEX: ATTENTIONAL_FITNESS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
