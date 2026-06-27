@@ -171,11 +171,19 @@ nav.scrolled .nav-container {
     padding: 1rem 2rem;
 }
 
-.logo-text {
-    font-size: 1.2rem;
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo-img {
+    height: 80px;
+    width: auto;
+    margin: -24px -15px; /* crop the 1024x1024 white margins dynamically */
+    mix-blend-mode: multiply;
+    display: block;
+    pointer-events: none; /* let click bubble to anchor */
 }
 
 .nav-links {
@@ -1490,11 +1498,13 @@ h2.section-title, .section-title {
 }
 
 .footer-logo {
-    font-family: 'Lora', Georgia, serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: -0.02em;
-    color: var(--primary-text);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+    height: 90px;
+    margin: -26px -18px;
 }
 
 .security-badge {
