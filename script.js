@@ -148,6 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('reveal-active');
                 if (el.id === 'navigator') {
                     animateDashboard('discover-view');
+                    setTimeout(() => {
+                        if (typeof drawDashboardLines === 'function') drawDashboardLines();
+                        if (typeof updateFlowIndicator === 'function') updateFlowIndicator();
+                    }, 100);
                 }
             }
         });
@@ -313,8 +317,91 @@ document.addEventListener('DOMContentLoaded', () => {
     const navTabs = document.querySelectorAll('.nav-tab-btn');
     const canvasViews = document.querySelectorAll('.canvas-view');
 
+    window.updateFlowIndicator = () => {
+        const activeTab = document.querySelector('.nav-tab-btn.active');
+        const sidebar = document.querySelector('.navigator-sidebar');
+        const flowLine = document.querySelector('.navigator-sidebar-flow');
+        if (activeTab && sidebar && flowLine) {
+            const activeRect = activeTab.getBoundingClientRect();
+            const sidebarRect = sidebar.getBoundingClientRect();
+            const topOffset = activeRect.top - sidebarRect.top + activeRect.height / 2 - 30; // center flow line
+            flowLine.style.transform = `translateY(${topOffset}px)`;
+        }
+    };
+
+    window.drawDashboardLines = () => {
+        const wrapper = document.querySelector('.navigator-dashboard-wrapper');
+        const svg = document.querySelector('.dashboard-connectors');
+        if (!wrapper || !svg) return;
+
+        svg.innerHTML = '';
+        if (window.innerWidth < 992) return;
+
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const canvas = document.querySelector('.navigator-canvas');
+        if (!canvas) return;
+
+        const canvasRect = canvas.getBoundingClientRect();
+        const canvasLeft = canvasRect.left - wrapperRect.left;
+        const canvasHeight = canvasRect.height;
+        const canvasTop = canvasRect.top - wrapperRect.top;
+
+        const tabs = document.querySelectorAll('.nav-tab-btn');
+        tabs.forEach((tab, index) => {
+            const tabRect = tab.getBoundingClientRect();
+            const tabRight = tabRect.right - wrapperRect.left;
+            const tabCenterY = (tabRect.top + tabRect.bottom) / 2 - wrapperRect.top;
+            
+            const viewName = tab.getAttribute('data-view');
+            const isActive = tab.classList.contains('active');
+
+            const dx = canvasLeft - tabRight;
+            const cx1 = tabRight + dx * 0.4;
+            const cy1 = tabCenterY;
+            const cx2 = canvasLeft - dx * 0.4;
+            const endY = canvasTop + canvasHeight / 2;
+            const cy2 = endY;
+            
+            const d = `M ${tabRight} ${tabCenterY} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${canvasLeft} ${endY}`;
+
+            // Background Line
+            const pathBg = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            pathBg.setAttribute('d', d);
+            pathBg.setAttribute('class', 'dash-connector-bg' + (isActive ? ' active' : ''));
+            svg.appendChild(pathBg);
+
+            // Active Glow Line
+            if (isActive) {
+                const pathGlow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathGlow.setAttribute('d', d);
+                pathGlow.setAttribute('class', 'dash-connector-glow active');
+                
+                let color = 'var(--accent)';
+                if (viewName === 'discover') color = 'var(--accent-cyan)';
+                if (viewName === 'learn') color = 'var(--accent)';
+                if (viewName === 'pathways') color = '#8b5cf6';
+                if (viewName === 'school') color = '#f59e0b';
+                pathGlow.setAttribute('stroke', color);
+                
+                svg.appendChild(pathGlow);
+            }
+        });
+    };
+
     if (navTabs.length > 0) {
+        let hoverTimeout;
         navTabs.forEach(tab => {
+            // Hover tab interaction
+            tab.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                hoverTimeout = setTimeout(() => {
+                    tab.click();
+                }, 80); // Debounce hover tab switching
+            });
+            tab.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+            });
+
             tab.addEventListener('click', () => {
                 const viewId = `${tab.getAttribute('data-view')}-view`;
                 const targetView = document.getElementById(viewId);
@@ -331,12 +418,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     targetView.classList.add('active');
                     animateDashboard(viewId);
+                    window.drawDashboardLines();
+                    window.updateFlowIndicator();
                 }, 50);
             });
         });
 
-        // Initial Animation
-        animateDashboard('discover-view');
+        // Initial setup
+        setTimeout(() => {
+            animateDashboard('discover-view');
+            window.drawDashboardLines();
+            window.updateFlowIndicator();
+        }, 150);
+
+        window.addEventListener('resize', () => {
+            window.drawDashboardLines();
+            window.updateFlowIndicator();
+        });
+        window.addEventListener('load', () => {
+            window.drawDashboardLines();
+            window.updateFlowIndicator();
+        });
     }
 
     // MAGNETIC BUTTON LOGIC

@@ -2729,5 +2729,485 @@ body.dialog-open {
     text-shadow: 0 0 10px rgba(129, 199, 132, 0.3);
 }
 
+/* Redesigned Premium Teaser Tab Buttons */
+.navigator-sidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    z-index: 2;
+}
+
+/* Vertical connector line in center panel */
+.navigator-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 2.7rem; /* Centered with the icons */
+    width: 2px;
+    background: rgba(0, 0, 0, 0.04);
+    z-index: 1;
+}
+
+/* Glowing active flow overlay on the line */
+.navigator-sidebar-flow {
+    position: absolute;
+    left: 2.7rem;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(0);
+}
+
+.navigator-sidebar .nav-tab-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    padding: 1.15rem 1.5rem;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 20px !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary-text) !important;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-align: left;
+    opacity: 0.5;
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 
+                0 4px 12px rgba(0, 0, 0, 0.01) !important;
+    width: 100%;
+}
+
+.navigator-sidebar .nav-tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.navigator-sidebar .nav-tab-btn:hover::before {
+    left: 130%;
+}
+
+.navigator-sidebar .nav-tab-btn:hover {
+    transform: translateX(6px) !important;
+    border-color: rgba(37, 99, 235, 0.15) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: var(--primary-text) !important;
+    opacity: 0.95;
+}
+
+.navigator-sidebar .nav-tab-btn.active {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--primary-text) !important;
+    border-color: rgba(37, 99, 235, 0.25) !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 
+                0 12px 30px rgba(37, 99, 235, 0.03), 
+                0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    opacity: 1;
+    transform: translateX(8px) !important;
+}
+
+.tab-icon-wrapper {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-text);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.nav-tab-btn:hover .tab-icon-wrapper {
+    color: var(--accent);
+    background: rgba(37, 99, 235, 0.05);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+
+.nav-tab-btn.active .tab-icon-wrapper {
+    color: #ffffff;
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.nav-tab-btn[data-view="discover"].active .tab-icon-wrapper { background: var(--accent-cyan); border-color: var(--accent-cyan); box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3); }
+.nav-tab-btn[data-view="learn"].active .tab-icon-wrapper { background: var(--accent); border-color: var(--accent); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+.nav-tab-btn[data-view="pathways"].active .tab-icon-wrapper { background: #8b5cf6; border-color: #8b5cf6; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); }
+.nav-tab-btn[data-view="school"].active .tab-icon-wrapper { background: #f59e0b; border-color: #f59e0b; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); }
+
+.tab-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    z-index: 2;
+}
+
+.tab-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--primary-text);
+}
+
+.tab-subtitle {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+    opacity: 0.65;
+}
+
+.nav-tab-btn:hover .tab-subtitle,
+.nav-tab-btn.active .tab-subtitle {
+    opacity: 0.9;
+}
+
+.nav-tab-btn .status-dot {
+    margin-left: auto;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+/* Dashboard Connection Lines */
+.navigator-dashboard-wrapper {
+    position: relative;
+}
+
+.dashboard-connectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .dashboard-connectors {
+        display: block;
+    }
+}
+
+.dash-connector-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.02);
+    stroke-width: 1.5;
+    transition: stroke 0.5s ease;
+}
+
+.dash-connector-bg.active {
+    stroke: rgba(0, 0, 0, 0.04);
+}
+
+.dash-connector-glow {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-opacity: 0.15;
+    transition: stroke-width 0.5s ease, stroke-opacity 0.5s ease;
+}
+
+.dash-connector-glow.active {
+    stroke-width: 2.5;
+    stroke-opacity: 0.85;
+    stroke-dasharray: 6 30;
+    animation: dash-flow 4s infinite linear;
+}
+
+@keyframes dash-flow {
+    to {
+        stroke-dashoffset: -36;
+    }
+}
+
+/* 1. Radar Chart Styles */
+.radar-grid-line {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.04);
+    stroke-width: 1px;
+}
+
+.radar-axis {
+    stroke: rgba(0, 0, 0, 0.05);
+    stroke-width: 1px;
+    stroke-dasharray: 2 2;
+}
+
+.radar-label {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    font-weight: 700;
+    fill: var(--primary-text);
+    opacity: 0.45;
+}
+
+.radar-sweep {
+    stroke: var(--accent-cyan);
+    stroke-width: 1.5px;
+    stroke-opacity: 0.4;
+    transform-origin: 150px 140px;
+    animation: radar-sweep-spin 8s infinite linear;
+}
+
+@keyframes radar-sweep-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.radar-poly {
+    stroke: var(--accent-cyan);
+    stroke-width: 2px;
+    filter: drop-shadow(0 4px 12px rgba(0, 229, 255, 0.25));
+    transform-origin: 150px 140px;
+    animation: radar-poly-breathe 6s infinite ease-in-out;
+}
+
+@keyframes radar-poly-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02) rotate(0.5deg); }
+}
+
+.radar-dot {
+    filter: drop-shadow(0 0 6px currentColor);
+    transform-origin: 150px 140px;
+}
+
+.dot-cyan { color: var(--accent-cyan); fill: var(--accent-cyan); }
+.dot-blue { color: var(--accent); fill: var(--accent); }
+.dot-purple { color: #8b5cf6; fill: #8b5cf6; }
+.dot-amber { color: #f59e0b; fill: #f59e0b; }
+.dot-red { color: #ef4444; fill: #ef4444; }
+
+/* 2. Concentric Rings Styles */
+.growth-ring-track {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.03);
+    stroke-width: 4px;
+}
+
+.growth-ring-fill {
+    fill: none;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transform-origin: 150px 140px;
+}
+
+.ring-outer-fill {
+    filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.3));
+    animation: ring-outer-spin 35s infinite linear;
+}
+
+.ring-middle-fill {
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.3));
+    animation: ring-middle-spin 30s infinite linear;
+}
+
+.ring-inner-fill {
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.3));
+    animation: ring-inner-spin 25s infinite linear;
+}
+
+@keyframes ring-outer-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes ring-middle-spin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes ring-inner-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.ring-indicator {
+    filter: drop-shadow(0 0 6px currentColor);
+    transform-origin: 150px 140px;
+}
+
+.ring-outer-dot { animation: ring-outer-spin 35s infinite linear; }
+.ring-middle-dot { animation: ring-middle-spin 30s infinite linear; }
+.ring-inner-dot { animation: ring-inner-spin 25s infinite linear; }
+
+.ring-core-pulse {
+    transform-origin: 150px 140px;
+    animation: ring-core-pulse-scale 4s infinite ease-in-out;
+}
+
+@keyframes ring-core-pulse-scale {
+    0%, 100% { transform: scale(0.9); opacity: 0.5; }
+    50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+.ring-label-text {
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    font-weight: 700;
+}
+
+.text-cyan { fill: var(--accent-cyan); }
+.text-blue { fill: var(--accent); }
+.text-purple { fill: #8b5cf6; }
+
+/* 3. Trajectory Map Styles */
+.trajectory-curve-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.03);
+    stroke-width: 3px;
+    stroke-linecap: round;
+}
+
+.trajectory-curve-glow {
+    fill: none;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.2));
+}
+
+.trajectory-pulse-particle {
+    fill: var(--accent-cyan);
+    filter: drop-shadow(0 0 8px var(--accent-cyan));
+    offset-path: path("M 30 230 C 80 230, 100 130, 150 130 C 200 130, 220 50, 270 50");
+    offset-rotate: auto;
+    animation: travel-particle 5s infinite linear;
+}
+
+@keyframes travel-particle {
+    0% { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+}
+
+.trajectory-node-ambient {
+    transform-origin: center;
+}
+
+.trajectory-node-ambient.pulsing {
+    animation: node-pulse-ring 2.5s infinite ease-out;
+}
+
+@keyframes node-pulse-ring {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    50% { transform: scale(1.3); opacity: 0.1; }
+    100% { transform: scale(0.8); opacity: 0.4; }
+}
+
+.trajectory-node-title {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    font-weight: 700;
+    fill: var(--primary-text);
+    opacity: 0.55;
+}
+
+/* 4. Wave Matrix Styles */
+.school-wave-line {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.02);
+    stroke-width: 2px;
+}
+
+.school-wave-line-glow {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-opacity: 0.35;
+    stroke-dasharray: 100 200;
+    animation: wave-glow-flow 8s infinite linear;
+}
+
+@keyframes wave-glow-flow {
+    from { stroke-dashoffset: 300; }
+    to { stroke-dashoffset: 0; }
+}
+
+.school-bar-rect {
+    transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1), y 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom;
+    animation: column-rise 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes column-rise {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+.school-bar-val {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    font-weight: 700;
+    fill: var(--primary-text);
+    opacity: 0.65;
+    text-anchor: middle;
+}
+
+.school-bar-lbl {
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    font-weight: 700;
+    fill: var(--primary-text);
+    opacity: 0.4;
+    text-anchor: middle;
+}
+
+.school-bar-node {
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* Inner styling tweaks for preview cards to make them glassmorphism */
+.navigator-canvas .telemetry-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 24px !important;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 
+                0 15px 35px rgba(0, 0, 0, 0.01) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--primary-text);
+    transition: all 0.5s ease;
+}
+
+/* Soft ambient glow on hover card */
+.navigator-canvas .telemetry-card:hover {
+    border-color: rgba(37, 99, 235, 0.12) !important;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 
+                0 20px 45px rgba(0, 0, 0, 0.02) !important;
+}
+
+.nav-teaser-trust .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+}
+
+
 
 

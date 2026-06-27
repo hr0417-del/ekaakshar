@@ -1270,16 +1270,26 @@
                 <div class="sticky-callout">
                     <span class="label">Navigator™</span>
                     <h2 class="section-title">Making Student Growth Visible Beyond Marks.</h2>
-                    <p>Navigator™ is Ekaakshar's educational intelligence framework.<br><br>It helps schools understand how students develop confidence, leadership, communication, participation, and future readiness over time.<br><br>Instead of relying only on academic performance, Navigator creates a more complete picture of every learner.</p>
-                    <a href="navigator.html" class="btn-primary-glow" style="display: inline-flex; align-items: center; gap: 0.75rem; border: none; cursor: pointer; font-size: 0.9rem; font-family: var(--font-sans); padding: 0.75rem 1.5rem; margin-top: 1.5rem; text-decoration: none; max-width: fit-content;">
-                        <span>Read Platform Specification</span>
-                        <span>→</span>
-                    </a>
-                </div>
-                <div class="sticky-metrics" style="border: none; background: transparent; padding: 0;">
-                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1.3;">
-                        Understand Growth.<br>
-                        <span style="color: var(--primary-text); opacity: 0.5;">Not Just Performance.</span>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.6; color: var(--secondary-text);">Navigator™ is Ekaakshar's Education Intelligence platform that helps schools understand confidence, communication, leadership and student capability beyond academic performance.</p>
+                    
+                    <div class="btn-group-teaser" style="display: flex; gap: 1rem; margin-top: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <a href="navigator.html" class="btn-primary-glow" style="text-decoration: none; padding: 0.8rem 1.6rem; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center;">Explore Navigator™</a>
+                        <a href="#contact" class="btn-secondary-clean" style="text-decoration: none; padding: 0.8rem 1.6rem; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center;">Book a Demo</a>
+                    </div>
+
+                    <div class="nav-teaser-trust" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem; color: var(--secondary-text); margin-top: 1rem; border-top: 1px solid rgba(0,0,0,0.04); padding-top: 1.25rem;">
+                        <div class="trust-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; color: var(--accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Education Intelligence</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; color: var(--accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Continuous Growth Tracking</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; color: var(--accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>School-Wide Insights</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1287,126 +1297,242 @@
             <!-- Right Scrollable Content (60%) -->
             <div class="asymmetric-content">
                 <div class="navigator-dashboard-wrapper">
+                    <!-- Dashboard Connection Lines Overlay -->
+                    <svg class="dashboard-connectors" width="100%" height="100%">
+                        <!-- Dynamically drawn by script.js -->
+                    </svg>
+
+                    <!-- Center Panel (Stages Grid / Tab buttons) -->
                     <div class="navigator-sidebar">
+                        <div class="navigator-sidebar-flow"></div>
                         <button class="nav-tab-btn active" data-view="discover">
-                            <span class="btn-label">Navigator Discover™</span>
+                            <div class="tab-glow-bg"></div>
+                            <div class="tab-icon-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9" stroke-dasharray="4 4" class="icon-ring-spin"></circle>
+                                    <circle cx="12" cy="12" r="3" fill="currentColor" class="icon-core-pulse"></circle>
+                                    <line x1="12" y1="3" x2="12" y2="21" opacity="0.3"></line>
+                                    <line x1="3" y1="12" x2="21" y2="12" opacity="0.3"></line>
+                                </svg>
+                            </div>
+                            <div class="tab-text-wrapper">
+                                <span class="tab-title">Navigator Discover™</span>
+                                <span class="tab-subtitle">Active Capability Mapping</span>
+                            </div>
                             <span class="status-dot green"></span>
                         </button>
                         <button class="nav-tab-btn" data-view="learn">
-                            <span class="btn-label">Navigator Learn™</span>
+                            <div class="tab-glow-bg"></div>
+                            <div class="tab-icon-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10" stroke-linecap="round" class="icon-path-draw"></path>
+                                    <circle cx="12" cy="12" r="6" stroke-dasharray="2 2" class="icon-ring-spin-counter"></circle>
+                                    <path d="M12 8v4l3 3" stroke-linecap="round"></path>
+                                </svg>
+                            </div>
+                            <div class="tab-text-wrapper">
+                                <span class="tab-title">Navigator Learn™</span>
+                                <span class="tab-subtitle">Continuous Growth Tracker</span>
+                            </div>
                             <span class="status-dot blue"></span>
                         </button>
                         <button class="nav-tab-btn" data-view="pathways">
-                            <span class="btn-label">Navigator Pathways™</span>
+                            <div class="tab-glow-bg"></div>
+                            <div class="tab-icon-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 17c3-3 6-3 9 0s6 3 9 0" class="icon-wave-flow" stroke-linecap="round"></path>
+                                    <circle cx="12" cy="14" r="3" fill="currentColor"></circle>
+                                    <line x1="3" y1="5" x2="21" y2="5" stroke-dasharray="3 3" opacity="0.3"></line>
+                                </svg>
+                            </div>
+                            <div class="tab-text-wrapper">
+                                <span class="tab-title">Navigator Pathways™</span>
+                                <span class="tab-subtitle">Predictive Trajectory Modelling</span>
+                            </div>
                             <span class="status-dot pulse"></span>
                         </button>
                         <button class="nav-tab-btn" data-view="school">
-                            <span class="btn-label">Navigator School™</span>
+                            <div class="tab-glow-bg"></div>
+                            <div class="tab-icon-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="14" width="4" height="7" rx="1" fill="currentColor" class="icon-bar-1"></rect>
+                                    <rect x="10" y="8" width="4" height="13" rx="1" fill="currentColor" class="icon-bar-2"></rect>
+                                    <rect x="17" y="3" width="4" height="18" rx="1" fill="currentColor" class="icon-bar-3"></rect>
+                                </svg>
+                            </div>
+                            <div class="tab-text-wrapper">
+                                <span class="tab-title">Navigator School™</span>
+                                <span class="tab-subtitle">Institutional Growth Index</span>
+                            </div>
                             <span class="status-dot sync"></span>
                         </button>
                     </div>
 
+                    <!-- Right Panel (Living Intelligence Canvas) -->
                     <div class="navigator-canvas">
                         <div id="discover-view" class="canvas-view active">
-                            <div class="telemetry-card">
+                            <div class="telemetry-card radar-card">
                                 <div class="card-header">
-                                    <h3>Cognitive & Profile Matrix</h3>
-                                    <span class="mono-tag">Active Strength Mapping</span>
+                                    <h3>Active Capability Radar</h3>
+                                    <span class="mono-tag">Discover™ Vector</span>
                                 </div>
-                                <div class="matrix-grid">
-                                    <div class="matrix-row">
-                                        <div class="row-info"><span>Confidence</span><span class="mono">85%</span></div>
-                                        <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
-                                    </div>
-                                    <div class="matrix-row">
-                                        <div class="row-info"><span>Leadership</span><span class="mono">90%</span></div>
-                                        <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
-                                    </div>
-                                    <div class="matrix-row">
-                                        <div class="row-info"><span>Communication</span><span class="mono">82%</span></div>
-                                        <div class="progress-track"><div class="progress-fill" style="width: 82%;"></div></div>
-                                    </div>
-                                    <div class="matrix-row">
-                                        <div class="row-info"><span>Participation</span><span class="mono">88%</span></div>
-                                        <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
-                                    </div>
-                                    <div class="matrix-row">
-                                        <div class="row-info"><span>Future Readiness</span><span class="mono">79%</span></div>
-                                        <div class="progress-track"><div class="progress-fill" style="width: 79%;"></div></div>
-                                    </div>
+                                <div class="radar-visualization" style="display: flex; justify-content: center; align-items: center; min-height: 280px; width: 100%;">
+                                    <svg width="100%" height="280" viewBox="0 0 300 280" style="overflow: visible; max-width: 280px; width: 100%;">
+                                        <defs>
+                                            <radialGradient id="radar-glow" cx="50%" cy="50%" r="50%">
+                                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.25" />
+                                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                            </radialGradient>
+                                            <linearGradient id="radar-poly-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.45" />
+                                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.15" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="150" cy="140" r="100" fill="url(#radar-glow)" />
+                                        <polygon points="150,30 255,106 215,229 85,229 45,106" class="radar-grid-line" />
+                                        <polygon points="150,52 234,113 202,211 98,211 66,113" class="radar-grid-line" opacity="0.8" />
+                                        <polygon points="150,74 213,120 189,193 111,193 87,120" class="radar-grid-line" opacity="0.6" />
+                                        <polygon points="150,96 192,126 176,175 124,175 108,126" class="radar-grid-line" opacity="0.4" />
+                                        <polygon points="150,118 171,133 163,157 137,157 129,133" class="radar-grid-line" opacity="0.2" />
+                                        <line x1="150" y1="140" x2="150" y2="30" class="radar-axis" />
+                                        <line x1="150" y1="140" x2="255" y2="106" class="radar-axis" />
+                                        <line x1="150" y1="140" x2="215" y2="229" class="radar-axis" />
+                                        <line x1="150" y1="140" x2="85" y2="229" class="radar-axis" />
+                                        <line x1="150" y1="140" x2="45" y2="106" class="radar-axis" />
+                                        <text x="150" y="18" class="radar-label" text-anchor="middle">CONFIDENCE</text>
+                                        <text x="262" y="108" class="radar-label" text-anchor="start">LEADERSHIP</text>
+                                        <text x="220" y="242" class="radar-label" text-anchor="start">COMMUNICATION</text>
+                                        <text x="80" y="242" class="radar-label" text-anchor="end">CREATIVITY</text>
+                                        <text x="38" y="108" class="radar-label" text-anchor="end">READINESS</text>
+                                        <line x1="150" y1="140" x2="150" y2="30" class="radar-sweep" />
+                                        <polygon points="150,46.5 244.1,109.4 203,213 93.1,218.3 67.4,113.1" class="radar-poly" fill="url(#radar-poly-grad)" />
+                                        <circle cx="150" cy="46.5" r="4" class="radar-dot dot-cyan" />
+                                        <circle cx="244.1" cy="109.4" r="4" class="radar-dot dot-blue" />
+                                        <circle cx="203" cy="213" r="4" class="radar-dot dot-purple" />
+                                        <circle cx="93.1" cy="218.3" r="4" class="radar-dot dot-amber" />
+                                        <circle cx="67.4" cy="113.1" r="4" class="radar-dot dot-red" />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
 
                         <div id="learn-view" class="canvas-view">
-                            <div class="telemetry-card rings-container">
+                            <div class="telemetry-card nested-rings-card">
                                 <div class="card-header">
-                                    <h3>Capability Core Metrics</h3>
-                                    <span class="mono-tag">Growth Tracking Active</span>
+                                    <h3>Multi-Dimensional Growth Dynamics</h3>
+                                    <span class="mono-tag">Learn™ Vector</span>
                                 </div>
-                                <div class="rings-flex">
-                                    <div class="ring-item">
-                                        <svg width="100" height="100">
-                                            <circle class="track" cx="50" cy="50" r="44"></circle>
-                                            <circle class="fill stroke-85" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 41;"></circle>
-                                        </svg>
-                                        <span class="ring-label">Confidence (<span class="metric-val">85%</span>)</span>
-                                    </div>
-                                    <div class="ring-item">
-                                        <svg width="100" height="100">
-                                            <circle class="track" cx="50" cy="50" r="44"></circle>
-                                            <circle class="fill stroke-90" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 28;"></circle>
-                                        </svg>
-                                        <span class="ring-label">Leadership (<span class="metric-val">90%</span>)</span>
-                                    </div>
-                                    <div class="ring-item">
-                                        <svg width="100" height="100">
-                                            <circle class="track" cx="50" cy="50" r="44"></circle>
-                                            <circle class="fill stroke-82" cx="50" cy="50" r="44" style="stroke-dasharray: 276; stroke-dashoffset: 50;"></circle>
-                                        </svg>
-                                        <span class="ring-label">Communication (<span class="metric-val">82%</span>)</span>
-                                    </div>
+                                <div class="nested-rings-visualization" style="display: flex; justify-content: center; align-items: center; min-height: 280px; width: 100%;">
+                                    <svg width="100%" height="280" viewBox="0 0 300 280" style="overflow: visible; max-width: 280px; width: 100%;">
+                                        <defs>
+                                            <radialGradient id="nested-core-glow" cx="50%" cy="50%" r="50%">
+                                                <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.8" />
+                                                <stop offset="60%" stop-color="var(--accent)" stop-opacity="0.2" />
+                                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                                            </radialGradient>
+                                        </defs>
+                                        <circle cx="150" cy="140" r="90" class="growth-ring-track" />
+                                        <path d="M 150 50 A 90 90 0 1 1 64.5 167.8" class="growth-ring-fill ring-outer-fill" stroke="var(--accent-cyan)" />
+                                        <circle cx="64.5" cy="167.8" r="5" class="ring-indicator ring-outer-dot" fill="var(--accent-cyan)" />
+                                        <circle cx="150" cy="140" r="65" class="growth-ring-track" />
+                                        <path d="M 150 75 A 65 65 0 1 1 97.4 178.2" class="growth-ring-fill ring-middle-fill" stroke="var(--accent)" />
+                                        <circle cx="97.4" cy="178.2" r="4.5" class="ring-indicator ring-middle-dot" fill="var(--accent)" />
+                                        <circle cx="150" cy="140" r="40" class="growth-ring-track" />
+                                        <path d="M 150 100 A 40 40 0 1 1 126.5 172.4" class="growth-ring-fill ring-inner-fill" stroke="#8b5cf6" />
+                                        <circle cx="126.5" cy="172.4" r="4" class="ring-indicator ring-inner-dot" fill="#8b5cf6" />
+                                        <circle cx="150" cy="140" r="18" fill="url(#nested-core-glow)" class="ring-core-pulse" />
+                                        <circle cx="150" cy="140" r="6" fill="#ffffff" style="filter: drop-shadow(0 0 8px #ffffff);" />
+                                        <text x="150" y="42" class="ring-label-text text-cyan" text-anchor="middle">Confidence 85%</text>
+                                        <text x="150" y="68" class="ring-label-text text-blue" text-anchor="middle">Leadership 90%</text>
+                                        <text x="150" y="93" class="ring-label-text text-purple" text-anchor="middle">Communication 82%</text>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
 
                         <div id="pathways-view" class="canvas-view">
-                            <div class="telemetry-card">
+                            <div class="telemetry-card trajectory-card">
                                 <div class="card-header">
-                                    <h3>Predictive Growth Pathways</h3>
-                                    <span class="mono-tag">Predictive Trajectory Active</span>
+                                    <h3>Predictive Capability Trajectory</h3>
+                                    <span class="mono-tag">Pathways™ Vector</span>
                                 </div>
-                                <div class="timeline-wrapper">
-                                    <div class="timeline-node">
-                                        <div class="node-dot"></div>
-                                        <div class="node-content">
-                                            <h4>Foundational Logic</h4>
-                                            <p>Architecture level logic mastery verified across <span class="metric-val">12</span> domains.</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-node">
-                                        <div class="node-dot pulsing"></div>
-                                        <div class="node-content">
-                                            <h4>Strategic Communication</h4>
-                                            <p>Peer influence metrics active. Predicted peak: <span class="metric-val">Q4</span>.</p>
-                                        </div>
-                                    </div>
+                                <div class="trajectory-visualization" style="display: flex; justify-content: center; align-items: center; min-height: 280px; width: 100%;">
+                                    <svg width="100%" height="280" viewBox="0 0 300 280" style="overflow: visible; max-width: 280px; width: 100%;">
+                                        <defs>
+                                            <linearGradient id="curve-glow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.3" />
+                                                <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.5" />
+                                                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M 30 230 C 80 230, 100 130, 150 130 C 200 130, 220 50, 270 50" class="trajectory-curve-bg" />
+                                        <path d="M 30 230 C 80 230, 100 130, 150 130 C 200 130, 220 50, 270 50" class="trajectory-curve-glow" stroke="url(#curve-glow-grad)" />
+                                        <circle r="6" fill="#00E5FF" class="trajectory-pulse-particle" />
+                                        <g class="trajectory-node-group" style="transform: translate(60px, 200px);">
+                                            <circle cx="0" cy="0" r="10" class="trajectory-node-ambient" fill="var(--accent-cyan)" opacity="0.15" />
+                                            <circle cx="0" cy="0" r="4" class="trajectory-node-core" fill="var(--accent-cyan)" />
+                                            <text x="12" y="4" class="trajectory-node-title">Foundational Logic</text>
+                                        </g>
+                                        <g class="trajectory-node-group" style="transform: translate(150px, 130px);">
+                                            <circle cx="0" cy="0" r="12" class="trajectory-node-ambient pulsing" fill="var(--accent)" opacity="0.2" />
+                                            <circle cx="0" cy="0" r="5" class="trajectory-node-core" fill="var(--accent)" />
+                                            <text x="12" y="4" class="trajectory-node-title">Strategic Comm</text>
+                                        </g>
+                                        <g class="trajectory-node-group" style="transform: translate(240px, 60px);">
+                                            <circle cx="0" cy="0" r="10" class="trajectory-node-ambient" fill="#8b5cf6" opacity="0.15" />
+                                            <circle cx="0" cy="0" r="4" class="trajectory-node-core" fill="#8b5cf6" />
+                                            <text x="12" y="4" class="trajectory-node-title">Adaptive Agency</text>
+                                        </g>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
 
                         <div id="school-view" class="canvas-view">
-                            <div class="telemetry-card">
+                            <div class="telemetry-card school-card">
                                 <div class="card-header">
-                                    <h3>Annual Confidence Index Breakdown</h3>
-                                    <span class="mono-tag">School Connected</span>
+                                    <h3>Annualized Institutional Index</h3>
+                                    <span class="mono-tag">School™ Vector</span>
                                 </div>
-                                <div class="bar-chart-container">
-                                    <div class="chart-bar" style="height: 40%;"><span class="bar-value">40%</span><span class="bar-label">JAN</span></div>
-                                    <div class="chart-bar" style="height: 55%;"><span class="bar-value">55%</span><span class="bar-label">MAR</span></div>
-                                    <div class="chart-bar" style="height: 75%;"><span class="bar-value">75%</span><span class="bar-label">JUL</span></div>
-                                    <div class="chart-bar" style="height: 92%;"><span class="bar-value">92%</span><span class="bar-label">DEC</span></div>
-                                    <div class="chart-bar" style="height: 60%;"><span class="bar-value">60%</span><span class="bar-label">AVG</span></div>
+                                <div class="school-wave-visualization" style="display: flex; justify-content: center; align-items: center; min-height: 280px; width: 100%;">
+                                    <svg width="100%" height="280" viewBox="0 0 300 280" style="overflow: visible; max-width: 280px; width: 100%;">
+                                        <defs>
+                                            <linearGradient id="bar-grad-cyan" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.6" />
+                                                <stop offset="100%" stop-color="var(--accent-cyan)" stop-opacity="0.05" />
+                                            </linearGradient>
+                                            <linearGradient id="bar-grad-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.6" />
+                                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.05" />
+                                            </linearGradient>
+                                            <linearGradient id="bar-grad-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.6" />
+                                                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.05" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M 40 192 Q 67.5 171, 95 150 T 150 94 T 205 46 T 260 136" class="school-wave-line" />
+                                        <path d="M 40 192 Q 67.5 171, 95 150 T 150 94 T 205 46 T 260 136" class="school-wave-line-glow" />
+                                        <rect x="28" y="192" width="24" height="68" rx="6" fill="url(#bar-grad-cyan)" class="school-bar-rect" />
+                                        <rect x="83" y="150" width="24" height="110" rx="6" fill="url(#bar-grad-blue)" class="school-bar-rect" />
+                                        <rect x="138" y="94" width="24" height="166" rx="6" fill="url(#bar-grad-cyan)" class="school-bar-rect" />
+                                        <rect x="193" y="46" width="24" height="214" rx="6" fill="url(#bar-grad-blue)" class="school-bar-rect" />
+                                        <rect x="248" y="136" width="24" height="124" rx="6" fill="url(#bar-grad-purple)" class="school-bar-rect" />
+                                        <text x="40" y="180" class="school-bar-val">40%</text>
+                                        <text x="95" y="138" class="school-bar-val">55%</text>
+                                        <text x="150" y="82" class="school-bar-val">75%</text>
+                                        <text x="205" y="34" class="school-bar-val">92%</text>
+                                        <text x="260" y="124" class="school-bar-val">60%</text>
+                                        <text x="40" y="275" class="school-bar-lbl">JAN</text>
+                                        <text x="95" y="275" class="school-bar-lbl">MAR</text>
+                                        <text x="150" y="275" class="school-bar-lbl">JUL</text>
+                                        <text x="205" y="275" class="school-bar-lbl">DEC</text>
+                                        <text x="260" y="275" class="school-bar-lbl">AVG</text>
+                                        <circle cx="40" cy="192" r="4" class="school-bar-node dot-cyan" />
+                                        <circle cx="95" cy="150" r="4" class="school-bar-node dot-blue" />
+                                        <circle cx="150" cy="94" r="4" class="school-bar-node dot-cyan" />
+                                        <circle cx="205" cy="46" r="4" class="school-bar-node dot-blue" />
+                                        <circle cx="260" cy="136" r="4" class="school-bar-node dot-purple" />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
