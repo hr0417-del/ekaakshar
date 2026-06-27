@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigator™ | Educational Intelligence Layer</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         /* Product Launch Specific Styles */
         :root {
@@ -488,6 +487,9 @@
             background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.02) 0%, transparent 60%);
         }
     </style>
+  <script type="module" crossorigin src="/assets/navigator-Dx2OipZQ.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/script-C95BPI6A.js">
+  <link rel="stylesheet" crossorigin href="/assets/script-CTCMtNEe.css">
 </head>
 <body>
     <div id="noise-overlay"></div>
@@ -849,96 +851,5 @@
         </div>
     </footer>
 
-    <script type="module">
-        // 1. Interactive Paradigm Slider Math
-        const sliderWrapper = document.getElementById('sliderWrapper');
-        const activePane = document.getElementById('activePane');
-        const sliderHandle = document.getElementById('sliderHandle');
-        let isDragging = false;
-
-        const updateSlider = (clientX) => {
-            const rect = sliderWrapper.getBoundingClientRect();
-            let offset = clientX - rect.left;
-            // Bound offsets
-            offset = Math.max(0, Math.min(rect.width, offset));
-            const percentage = (offset / rect.width) * 100;
-            
-            activePane.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
-            sliderHandle.style.left = `${percentage}%`;
-        };
-
-        if (sliderWrapper && activePane && sliderHandle) {
-            const startDrag = () => { isDragging = true; };
-            const stopDrag = () => { isDragging = false; };
-            
-            sliderHandle.addEventListener('mousedown', startDrag);
-            window.addEventListener('mouseup', stopDrag);
-            
-            window.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                updateSlider(e.clientX);
-            });
-
-            // Touch support
-            sliderHandle.addEventListener('touchstart', startDrag);
-            window.addEventListener('touchend', stopDrag);
-            window.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                updateSlider(e.touches[0].clientX);
-            });
-        }
-
-        // 2. Interactive Architecture Exploder Click Transitions
-        const layers = document.querySelectorAll('.stack-layer');
-        const details = document.querySelectorAll('.layer-detail-content');
-
-        layers.forEach(layer => {
-            layer.addEventListener('click', () => {
-                layers.forEach(l => l.classList.remove('active'));
-                layer.classList.add('active');
-
-                const idx = layer.getAttribute('data-layer');
-                details.forEach(d => d.classList.remove('active'));
-                
-                const targetDetail = document.getElementById(`detail-${idx}`);
-                if (targetDetail) targetDetail.classList.add('active');
-            });
-        });
-
-        // 3. Interactive FCI Hub Node Click Transitions
-        const fciNodes = document.querySelectorAll('.fci-node');
-        const fciDetails = document.querySelectorAll('.fci-detail-content');
-
-        fciNodes.forEach(node => {
-            node.addEventListener('click', () => {
-                fciNodes.forEach(n => n.classList.remove('active'));
-                node.classList.add('active');
-
-                const idx = node.getAttribute('data-node');
-                fciDetails.forEach(d => d.classList.remove('active'));
-                
-                const targetFciDetail = document.getElementById(`fci-detail-${idx}`);
-                if (targetFciDetail) targetFciDetail.classList.add('active');
-            });
-        });
-
-        // 4. Interactive Modules Toggle Tabs Transitions
-        const tabBtns = document.querySelectorAll('.modules-tab-btn');
-        const tabPanes = document.querySelectorAll('.module-display-pane');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const tab = btn.getAttribute('data-tab');
-                tabPanes.forEach(p => p.classList.remove('active'));
-                
-                const targetPane = document.getElementById(`pane-${tab}`);
-                if (targetPane) targetPane.classList.add('active');
-            });
-        });
-    </script>
-    <script type="module" src="script.js"></script>
 </body>
 </html>
