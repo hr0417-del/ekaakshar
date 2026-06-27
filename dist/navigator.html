@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator™ | Educational Intelligence Layer</title>
+    <style>
+        /* Product Launch Specific Styles */
+        :root {
+            --panel-bg: rgba(255, 255, 255, 0.4);
+            --panel-border: rgba(0, 0, 0, 0.04);
+        }
+        
+        .launch-hero {
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .launch-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.25rem);
+            line-height: 1.1;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-text);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .launch-hero-sub {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--secondary-text);
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 3.5rem;
+        }
+
+        /* 1. Paradigm Slider Widget */
+        .paradigm-slider-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            user-select: none;
+            overflow: hidden;
+            border-radius: 32px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--glass-border);
+        }
+
+        .paradigm-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background: #fff;
+        }
+
+        .paradigm-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .legacy-pane {
+            background: #f1f5f9;
+            color: #475569;
+            z-index: 1;
+        }
+
+        .active-pane {
+            background: #ffffff;
+            color: var(--primary-text);
+            z-index: 2;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        }
+
+        .mock-sheet {
+            width: 100%;
+            max-width: 460px;
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: left;
+        }
+
+        .legacy-pane .mock-sheet {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            filter: grayscale(100%) opacity(0.85);
+        }
+
+        .grade-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .grade-line-footer {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .active-pane .mock-sheet {
+            background: var(--glass-bg);
+            border: 1px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06);
+        }
+
+        .profile-bar {
+            margin-bottom: 1.25rem;
+        }
+
+        .profile-bar .bar-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .profile-bar .bar-track {
+            height: 6px;
+            background: rgba(37, 99, 235, 0.08);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .profile-bar .bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 99px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--accent);
+            z-index: 3;
+            cursor: ew-resize;
+        }
+
+        .slider-handle::after {
+            content: '↔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            border: 2px solid #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .slider-instructions {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            margin-top: 1.5rem;
+            font-family: var(--font-mono);
+        }
+
+        /* 2. Architecture Exploder */
+        .stack-exploder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 4rem auto;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .stack-exploder {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .stack-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            perspective: 1000px;
+        }
+
+        .stack-layer {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+            transform: rotateX(15deg) rotateY(-5deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .stack-layer:hover, .stack-layer.active {
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+            transform: rotateX(0deg) rotateY(0deg) translateY(-6px);
+        }
+
+        .stack-layer.active {
+            background: rgba(37, 99, 235, 0.02);
+        }
+
+        .stack-layer h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .stack-layer p {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        .layer-details-panel {
+            padding: 3rem;
+            border-radius: 32px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .layer-detail-content {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .layer-detail-content.active {
+            display: block;
+        }
+
+        .layer-detail-content h3 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin: 0.75rem 0 1.25rem;
+        }
+
+        .layer-detail-content p {
+            line-height: 1.6;
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+        }
+
+        /* 3. Capability Hub (FCI Bubble Map) */
+        .fci-hub-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 4rem auto;
+        }
+
+        @media (max-width: 850px) {
+            .fci-hub-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .fci-hub-visual {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fci-center-hub {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.15), inset 0 0 20px rgba(37, 99, 235, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .fci-center-hub span {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .fci-center-hub label {
+            font-size: 0.55rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.1em;
+            color: var(--secondary-text);
+            margin-top: 0.25rem;
+        }
+
+        .fci-node {
+            position: absolute;
+            padding: 0.8rem 1.4rem;
+            border-radius: 99px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .fci-node::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(to top, var(--accent), transparent);
+            z-index: -1;
+            transform-origin: bottom center;
+        }
+
+        .fci-node:hover, .fci-node.active {
+            border-color: var(--accent);
+            background: rgba(37, 99, 235, 0.03);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+            transform: scale(1.08);
+        }
+
+        .fci-node.active {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        /* Node Position mappings */
+        .node-1 { top: 15%; left: 15%; }
+        .node-2 { top: 12%; right: 15%; }
+        .node-3 { bottom: 15%; left: 10%; }
+        .node-4 { bottom: 12%; right: 10%; }
+        .node-5 { top: 50%; left: 5%; transform: translateY(-50%); }
+        .node-6 { top: 50%; right: 5%; transform: translateY(-50%); }
+        .node-7 { bottom: 5%; left: 45%; transform: translateX(-50%); }
+
+        .fci-detail-panel {
+            padding: 3rem;
+            border-radius: 32px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fci-detail-content {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .fci-detail-content.active {
+            display: block;
+        }
+
+        .fci-detail-content h3 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .fci-detail-content p {
+            line-height: 1.6;
+            color: var(--secondary-text);
+        }
+
+        /* 4. Interactive Modules Toggle Cards */
+        .modules-toggle-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .modules-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .modules-tab-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modules-tab-btn:hover, .modules-tab-btn.active {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .modules-tab-btn.active {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .module-display-pane {
+            display: none;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .module-display-pane.active {
+            display: grid;
+        }
+
+        @media (max-width: 800px) {
+            .module-display-pane.active {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .mock-dashboard-visual {
+            border-radius: 24px;
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gradient-bg-section {
+            background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.02) 0%, transparent 60%);
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/navigator-yXIk6JR0.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/script-C3a1qPf9.js">
+  <link rel="stylesheet" crossorigin href="/assets/script-DZFwPyXl.css">
+</head>
+<body>
+    <div id="noise-overlay"></div>
+    <div id="custom-cursor"></div>
+    <div id="scroll-progress"></div>
+    <div id="bottom-progress-tracker"></div>
+    <canvas id="particles-canvas"></canvas>
+    
+    <div class="polish-bg-depth" id="glow-depth-1"></div>
+    <div class="polish-bg-depth" id="glow-depth-2"></div>
+    <div class="polish-bg-depth" id="glow-depth-3"></div>
+
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">EKAAKSHAR</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <div class="nav-capsule" id="nav-capsule"></div>
+                <a href="index.html#navigator">Dashboard</a>
+                <a href="index.html#programs">Programs</a>
+                <a href="index.html#vision">Vision</a>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="index.html#contact" class="btn-nav-outline">Partner With Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: THE HERO CHALLENGE -->
+    <header class="launch-hero reveal">
+        <div class="inline-label floating" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.25rem; background: rgba(0,0,0,0.03); border-radius: 99px; margin-bottom: 2rem;">
+            <span style="width: 8px; height: 8px; background: var(--accent); border-radius: 50%;"></span>
+            <span style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em;">Platform Spec // Deep Dive</span>
+        </div>
+        <h1>Marks Measure Memory.<br><span class="gradient-text">We Measure Growth.</span></h1>
+        
+        <p class="launch-hero-sub">
+            Traditional school templates frozen in compliance tracking miss the development of confidence, leadership, and future readiness. Navigator bridges this gap, translating classroom observations into actionable student intelligence.
+        </p>
+
+        <!-- Paradigm Slider Widget -->
+        <div class="paradigm-slider-container">
+            <div class="paradigm-slider-wrapper" id="sliderWrapper">
+                <!-- Legacy Side -->
+                <div class="paradigm-side legacy-pane">
+                    <div class="mock-sheet">
+                        <span class="mono" style="font-size: 0.65rem; color: #94a3b8; display: block; margin-bottom: 1rem;">STATIC REPORT PARADIGM</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">Academic Grade Sheet</h3>
+                        <div class="grade-line"><span>English Language</span> <span>78%</span></div>
+                        <div class="grade-line"><span>Mathematics</span> <span>88%</span></div>
+                        <div class="grade-line"><span>Science & Tech</span> <span>82%</span></div>
+                        <div class="grade-line"><span>Social Studies</span> <span>80%</span></div>
+                        <div class="grade-line-footer">Outputs tell us WHAT happened, not WHY.</div>
+                    </div>
+                </div>
+                <!-- Active Side -->
+                <div class="paradigm-side active-pane" id="activePane">
+                    <div class="mock-sheet glass-card">
+                        <span class="mono" style="font-size: 0.65rem; color: var(--accent); display: block; margin-bottom: 1rem;">NAVIGATOR DEVELOPMENT MATRIX</span>
+                        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary-text);">Functional Capability Profile</h3>
+                        <div class="profile-bar"><div class="bar-info"><span>Confidence</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div></div>
+                        <div class="profile-bar"><div class="bar-info"><span>Initiative</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div></div>
+                        <div class="profile-bar"><div class="bar-info"><span>Communication</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" style="width: 82%;"></div></div></div>
+                        <div class="profile-bar"><div class="bar-info"><span>Collaboration</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div></div>
+                    </div>
+                </div>
+                <!-- Slider handle -->
+                <div class="slider-handle" id="sliderHandle"></div>
+            </div>
+            <div class="slider-instructions">Drag the slider to compare traditional report marks with Navigator's active growth intelligence.</div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: WHY NAVIGATOR EXISTS -->
+    <section class="reveal gradient-bg-section" style="padding: 8rem 2rem; border-top: 1px solid rgba(0,0,0,0.03);">
+        <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+            <span class="label">The Intelligence Layer</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; max-width: 900px; margin: 1rem auto 2rem; line-height: 1.25;">
+                Today's schools capture millions of data points.<br>Almost none of it becomes actionable.
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--secondary-text); max-width: 700px; margin: 0 auto 4rem; line-height: 1.7;">
+                Principals see administration, parents see report cards, teachers see classrooms, and students see marks. Navigator sits above these disconnected fragments as an intelligence layer to translate student observations into actionable pathways.
+            </p>
+        </div>
+
+        <!-- 3D Architecture Exploder -->
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div class="stack-exploder">
+                <div class="stack-layers">
+                    <div class="stack-layer active" data-layer="3">
+                        <span class="mono" style="font-size: 0.65rem; color: var(--accent);">LAYER 03 // ACTION</span>
+                        <h4>Decision Support Modules</h4>
+                        <p>Learn, Teach, and Guide modules delivering role-specific student growth dashboards.</p>
+                    </div>
+                    <div class="stack-layer" data-layer="2">
+                        <span class="mono" style="font-size: 0.65rem; color: var(--accent);">LAYER 02 // CONVERSION</span>
+                        <h4>Education Intelligence Engine</h4>
+                        <p>Vector calculations converting qualitative observations into dynamic capability scores.</p>
+                    </div>
+                    <div class="stack-layer" data-layer="1">
+                        <span class="mono" style="font-size: 0.65rem; color: var(--accent);">LAYER 01 // INGEST</span>
+                        <h4>Data Collection Layer</h4>
+                        <p>Structured observation intakes from classrooms, projects, and Skill Labs.</p>
+                    </div>
+                </div>
+                
+                <div class="layer-details-panel glass-card">
+                    <div class="layer-detail-content" id="detail-default">
+                        <span class="mono">SYSTEM INTERACTIVE BLUEPRINT</span>
+                        <h3>Explore the Architecture</h3>
+                        <p>Click on any layer of the stack to discover how Navigator ingests observations, processes intelligence, and outputs actionable decisions.</p>
+                    </div>
+                    <div class="layer-detail-content" id="detail-1">
+                        <span class="mono">LAYER 01 // INTAKE</span>
+                        <h3>Structured Observation Intake</h3>
+                        <p>Navigator collects observations from student projects, classrooms, assessments, and Skill Labs without psychological diagnosis or surveillance.</p>
+                        <div class="tag-pill-container">
+                            <span class="tag-pill">Classroom Observations</span>
+                            <span class="tag-pill">Skill Labs</span>
+                            <span class="tag-pill">Activity Logs</span>
+                            <span class="tag-pill">Assessments</span>
+                        </div>
+                    </div>
+                    <div class="layer-detail-content" id="detail-2">
+                        <span class="mono">LAYER 02 // CONVERSION CORE</span>
+                        <h3>Intelligence Engine</h3>
+                        <p>Converts observations into structured educational vectors. The engine continuously runs profiles on student learning vectors, teacher alignment, and career mapping algorithms.</p>
+                        <div class="tag-pill-container">
+                            <span class="tag-pill">Learning Vectors</span>
+                            <span class="tag-pill">Pedagogical Vectors</span>
+                            <span class="tag-pill">FCI Indexing</span>
+                            <span class="tag-pill">Adaptive Feedback</span>
+                        </div>
+                    </div>
+                    <div class="layer-detail-content active" id="detail-3">
+                        <span class="mono">LAYER 03 // INTERFACE</span>
+                        <h3>Decision Support Modules</h3>
+                        <p>Delivers role-specific dashboard views. Integrated platforms align students, teachers, and guidance counselors under a unified system.</p>
+                        <div class="tag-pill-container">
+                            <span class="tag-pill">Navigator Learn</span>
+                            <span class="tag-pill">Navigator Teach</span>
+                            <span class="tag-pill">Navigator Guide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HOW IT WORKS (FCI HUB) -->
+    <section class="reveal" style="padding: 8rem 2rem; border-top: 1px solid rgba(0,0,0,0.03);">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="label">Core Metrics</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-top: 1rem;">The Functional Confidence Index</h2>
+                <p style="font-size: 1.1rem; color: var(--secondary-text); max-width: 700px; margin: 1.5rem auto 0; line-height: 1.6;">
+                    Academic marks show what a student knows. The Functional Confidence Index (FCI) measures if they can confidently use what they know in real settings.
+                </p>
+            </div>
+
+            <!-- FCI Interactive Node Map -->
+            <div class="fci-hub-container">
+                <div class="fci-hub-visual">
+                    <div class="fci-center-hub">
+                        <span>FCI</span>
+                        <label>CORE INDEX</label>
+                    </div>
+                    <div class="fci-node active" data-node="1" style="top: 10%; left: 10%;">Expression</div>
+                    <div class="fci-node" data-node="2" style="top: 10%; right: 10%;">Initiative</div>
+                    <div class="fci-node" data-node="3" style="bottom: 12%; left: 8%;">Collaboration</div>
+                    <div class="fci-node" data-node="4" style="bottom: 12%; right: 8%;">Self-Regulation</div>
+                    <div class="fci-node" data-node="5" style="top: 48%; left: 2%; transform: translateY(-50%);">Persistence</div>
+                    <div class="fci-node" data-node="6" style="top: 48%; right: 2%; transform: translateY(-50%);">Adaptability</div>
+                    <div class="fci-node" data-node="7" style="bottom: 2%; left: 50%; transform: translateX(-50%);">Problem Solving</div>
+                </div>
+
+                <div class="fci-detail-panel glass-card">
+                    <div class="fci-detail-content active" id="fci-detail-1">
+                        <span class="mono">INDICATOR // EXPRESSION</span>
+                        <h3>Expression & Articulation</h3>
+                        <p>Measures a student's public communication effectiveness, clarity of thought delivery, and ability to defend ideas in collaborative debate frameworks.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-2">
+                        <span class="mono">INDICATOR // INITIATIVE</span>
+                        <h3>Initiative & Agency</h3>
+                        <p>Tracks how students take charge of unstructured tasks, identify project bottlenecks, and mobilize resources voluntarily in practical learning environments.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-3">
+                        <span class="mono">INDICATOR // COLLABORATION</span>
+                        <h3>Collaboration & Team Dynamics</h3>
+                        <p>Evaluates peer-to-peer delegation, active listening, conflict resolution, and the student's operational output when working inside multi-role teams.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-4">
+                        <span class="mono">INDICATOR // SELF-REGULATION</span>
+                        <h3>Self-Regulation</h3>
+                        <p>Measures emotional resilience, task focus, time management, and the student's ability to maintain productivity under stressful scenarios.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-5">
+                        <span class="mono">INDICATOR // PERSISTENCE</span>
+                        <h3>Persistence & Grit</h3>
+                        <p>Tracks how a student handles challenges, measuring retry rates, failure tolerance, and problem investigation loops when encountering complex barriers.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-6">
+                        <span class="mono">INDICATOR // ADAPTABILITY</span>
+                        <h3>Adaptability & Pivot Velocity</h3>
+                        <p>Assesses the speed and quality of changes in approach when initial project hypotheses fail or parameters shift mid-way.</p>
+                    </div>
+                    <div class="fci-detail-content" id="fci-detail-7">
+                        <span class="mono">INDICATOR // PROBLEM SOLVING</span>
+                        <h3>Problem-Solving Confidence</h3>
+                        <p>Measures confidence in analyzing unfamiliar situations, dividing large problems into logical tasks, and building structured solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: WHAT SCHOOLS GAIN (MODULES) -->
+    <section class="reveal gradient-bg-section" style="padding: 8rem 2rem; border-top: 1px solid rgba(0,0,0,0.03);">
+        <div class="modules-toggle-container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="label">Integrated Modules</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-top: 1rem;">One Connected Platform. Three Focus Areas.</h2>
+                <p style="font-size: 1.1rem; color: var(--secondary-text); max-width: 600px; margin: 1.5rem auto 0; line-height: 1.6;">
+                    Navigator is deployed across three aligned modules, ensuring growth is visible to leadership, educators, and students.
+                </p>
+            </div>
+
+            <div class="modules-tabs">
+                <button class="modules-tab-btn active" data-tab="learn">Navigator Learn</button>
+                <button class="modules-tab-btn" data-tab="teach">Navigator Teach</button>
+                <button class="modules-tab-btn" data-tab="guide">Navigator Guide</button>
+            </div>
+
+            <!-- Tab Content Pane: Learn -->
+            <div class="module-display-pane active" id="pane-learn">
+                <div>
+                    <span class="mono" style="color: #22c55e;">MODULE // LEARN</span>
+                    <h3 style="font-size: 2.25rem; font-weight: 700; margin: 1rem 0 1.5rem; line-height: 1.2;">Understand every student beyond marks.</h3>
+                    <p style="line-height: 1.7; color: var(--secondary-text); margin-bottom: 1.5rem;">
+                        Navigator Learn captures daily learning behaviours, class participation frequencies, and confidence growth matrices, organizing them into a unified longitudinal student profile.
+                    </p>
+                    <ul style="padding-left: 1.25rem; color: var(--secondary-text); line-height: 1.8; margin-bottom: 1.5rem;">
+                        <li><strong>FCI Metric Curve:</strong> Continuous tracking of behavioral development.</li>
+                        <li><strong>Participation Audits:</strong> Mapping classroom involvement trends.</li>
+                        <li><strong>Profiles:</strong> Tailored student, class, and grade-level reports.</li>
+                    </ul>
+                </div>
+                <div class="mock-dashboard-visual">
+                    <span class="mono" style="font-size: 0.65rem; color: #22c55e; display: block; margin-bottom: 1rem;">MOCKUP // NAVIGATOR LEARN DASHBOARD</span>
+                    <h4 style="margin: 0 0 1rem; font-size: 1.1rem;">Confidence Growth (Annual)</h4>
+                    <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 150px; padding: 1rem 0; border-bottom: 1.5px solid #f1f5f9; margin-bottom: 1rem;">
+                        <div style="width: 15%; height: 40%; background: #e2e8f0; border-radius: 4px; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 0.6rem; color: #64748b; margin-bottom:-20px;">JAN</span></div>
+                        <div style="width: 15%; height: 52%; background: #cbd5e1; border-radius: 4px; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 0.6rem; color: #64748b; margin-bottom:-20px;">MAR</span></div>
+                        <div style="width: 15%; height: 75%; background: rgba(34, 197, 94, 0.4); border-radius: 4px; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 0.6rem; color: #22c55e; margin-bottom:-20px;">JUL</span></div>
+                        <div style="width: 15%; height: 90%; background: #22c55e; border-radius: 4px; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 0.6rem; color: #ffffff; margin-bottom: 5px;">90%</span><span style="font-size: 0.6rem; color: #22c55e; margin-bottom:-20px;">DEC</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content Pane: Teach -->
+            <div class="module-display-pane" id="pane-teach">
+                <div>
+                    <span class="mono" style="color: #3b82f6;">MODULE // TEACH</span>
+                    <h3 style="font-size: 2.25rem; font-weight: 700; margin: 1rem 0 1.5rem; line-height: 1.2;">Optimize teacher-class alignment.</h3>
+                    <p style="line-height: 1.7; color: var(--secondary-text); margin-bottom: 1.5rem;">
+                        Recruitment stops at hiring, but classroom dynamics keep changing. Navigator Teach tracks engagement, alignment, and teacher-class compatibility to support professional growth.
+                    </p>
+                    <ul style="padding-left: 1.25rem; color: var(--secondary-text); line-height: 1.8; margin-bottom: 1.5rem;">
+                        <li><strong>Pedagogical Matching:</strong> Algorithmic pairing of teaching styles with classroom needs.</li>
+                        <li><strong>Engagement Indexes:</strong> Measuring teacher-student sync in real-time.</li>
+                        <li><strong>PD Action Paths:</strong> Data-driven professional development recommendations.</li>
+                    </ul>
+                </div>
+                <div class="mock-dashboard-visual">
+                    <span class="mono" style="font-size: 0.65rem; color: #3b82f6; display: block; margin-bottom: 1rem;">MOCKUP // NAVIGATOR TEACH DASHBOARD</span>
+                    <h4 style="margin: 0 0 1.5rem; font-size: 1.1rem;">Teacher-Class Compatibility</h4>
+                    <div style="display: flex; justify-content: space-around; text-align: center;">
+                        <div>
+                            <div style="width: 80px; height: 80px; border-radius: 50%; border: 6px solid #e2e8f0; border-top-color: #3b82f6; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; transform: rotate(45deg);"><span style="transform: rotate(-45deg)">85%</span></div>
+                            <span style="font-size: 0.75rem; color: var(--secondary-text); font-weight: 600;">Grade 9-A Sync</span>
+                        </div>
+                        <div>
+                            <div style="width: 80px; height: 80px; border-radius: 50%; border: 6px solid #e2e8f0; border-top-color: #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; transform: rotate(120deg);"><span style="transform: rotate(-120deg)">62%</span></div>
+                            <span style="font-size: 0.75rem; color: var(--secondary-text); font-weight: 600;">Grade 10-B Sync</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content Pane: Guide -->
+            <div class="module-display-pane" id="pane-guide">
+                <div>
+                    <span class="mono" style="color: #eab308;">MODULE // GUIDE</span>
+                    <h3 style="font-size: 2.25rem; font-weight: 700; margin: 1rem 0 1.5rem; line-height: 1.2;">Continuous, data-driven career readiness.</h3>
+                    <p style="line-height: 1.7; color: var(--secondary-text); margin-bottom: 1.5rem;">
+                        Guide replaces static, one-time career tests. Career readiness evolves as students develop, using longitudinal capability mapping, academic progression, and Skill Lab project data.
+                    </p>
+                    <ul style="padding-left: 1.25rem; color: var(--secondary-text); line-height: 1.8; margin-bottom: 1.5rem;">
+                        <li><strong>Dynamic Career Clusters:</strong> Evolving industry matches as competencies scale.</li>
+                        <li><strong>Readiness Bands:</strong> Visualizing execution capacity across career paths.</li>
+                        <li><strong>Guided Conversations:</strong> Structured reports for parents and counselors.</li>
+                    </ul>
+                </div>
+                <div class="mock-dashboard-visual">
+                    <span class="mono" style="font-size: 0.65rem; color: #eab308; display: block; margin-bottom: 1rem;">MOCKUP // NAVIGATOR GUIDE PATHWAY</span>
+                    <h4 style="margin: 0 0 1rem; font-size: 1.1rem;">Evolving Career Cluster</h4>
+                    <div style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: var(--secondary-text);">
+                        <div style="padding: 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>🚀 Systems Engineering</span> <span style="color:#22c55e;">94% MATCH</span></div>
+                        <div style="padding: 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 0.5rem; display: flex; justify-content: space-between;"><span>🎨 Design & Prototyping</span> <span style="color:#3b82f6;">82% MATCH</span></div>
+                        <div style="padding: 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; justify-content: space-between;"><span>📊 Strategic Analytics</span> <span style="color:#eab308;">79% MATCH</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: REAL IMPLEMENTATION & DIFFERENCE -->
+    <section class="reveal" style="padding: 8rem 2rem; border-top: 1px solid rgba(0,0,0,0.03);">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <!-- National framework alignment -->
+            <div class="glass-card" style="padding: 3.5rem; border-radius: 32px; text-align: center;">
+                <span class="label">Policy & Standards</span>
+                <h3 style="font-size: 2rem; font-weight: 700; margin: 1rem 0 1.5rem;">National Framework Alignment</h3>
+                <p style="color: var(--secondary-text); line-height: 1.7; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Navigator is engineered from the ground up to align directly with modern national and regional educational frameworks, helping schools fulfill compliance requirements while building active student growth environments.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+                    <span class="tag-pill">National Education Policy (NEP) 2020</span>
+                    <span class="tag-pill">CBSE Competency-Based Education</span>
+                    <span class="tag-pill">NCERT Outcomes</span>
+                    <span class="tag-pill">NCF 2023 Guidelines</span>
+                    <span class="tag-pill">Holistic Progress Card Philosophy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CALL TO ACTION -->
+    <footer class="global-footer-canvas reveal" style="border-top: 1px solid rgba(0,0,0,0.04);">
+        <div class="footer-cta-wrapper" style="padding: 8rem 2rem 4rem;">
+            <span class="cta-mini-label mono">Ekaakshar Education</span>
+            <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem;">Shape Student Growth Intentionally.</h2>
+            <p style="color: var(--secondary-text); max-width: 600px; margin: 0 auto 3rem; line-height: 1.6;">
+                Embed Navigator's educational intelligence layer directly into your school's operating system to make student development visible and teacher deployment optimal.
+            </p>
+            <div class="footer-cta-actions" style="display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="index.html#contact" class="btn-primary-glow" style="text-decoration: none;">Book a School Demo</a>
+                <a href="index.html" class="btn-secondary-clean" style="text-decoration: none;">Return to Home</a>
+            </div>
+        </div>
+        <div class="footer-compliance-bar">
+            <span class="mono">© 2026 Ekaakshar Education. Engineered for deliberate growth.</span>
+            <span class="mono text-muted">HARYANA // INDIA</span>
+        </div>
+    </footer>
+
+</body>
+</html>
